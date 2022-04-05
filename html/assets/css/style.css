@@ -16,6 +16,7 @@
   width: 90%;
   margin: 0 auto;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  position: relative;
 }
 
 .register-photo form {
@@ -24,6 +25,7 @@
   background-color: #ffffff;
   padding: 40px 60px;
   color: #505e6c;
+  top: 50%;
 }
 
 @media (max-width:991px) {
@@ -81,5 +83,9 @@
   color: #6f7a85;
   opacity: 0.9;
   text-decoration: none;
+}
+
+#register_body {
+  overflow: hidden;
 }
 
