@@ -25,6 +25,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+           
                         @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
                         @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
                         {
@@ -39,8 +40,9 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="User">Hello, @User.Identity.Name</a>
+                                <a class="nav-link text-dark" asp-controller="User" asp-action="logout">Log Out</a>
                             </li>
+                            
                         }
                         else
                         {

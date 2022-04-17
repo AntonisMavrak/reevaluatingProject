@@ -76,7 +76,7 @@ namespace ADOPSEV1._1.Controllers
 
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
                         ViewBag.userName = ClaimTypes.Name;
-                        return Redirect("/User/login");
+                        return Redirect("/Home/index");
 
                         
                     }
@@ -112,6 +112,13 @@ namespace ADOPSEV1._1.Controllers
             ViewBag.message = message;
             return View();
 
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> logout()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/Home/index");
         }
         
     }
