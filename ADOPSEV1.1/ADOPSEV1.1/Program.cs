@@ -7,9 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddDbContext<myDbContext>(options => options.UseMySQL(
-    builder.Configuration.GetConnectionString("Default")
-));
+
+var connectionString = builder.Configuration.GetConnectionString("Default");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

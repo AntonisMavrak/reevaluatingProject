@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOPSEV1.1", "ADOPSEV1.1\ADOPSEV1.1.csproj", "{63653271-F29A-4358-A41E-4BB9A7C20D3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOPSEV1.1", "ADOPSEV1.1\ADOPSEV1.1.csproj", "{63653271-F29A-4358-A41E-4BB9A7C20D3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

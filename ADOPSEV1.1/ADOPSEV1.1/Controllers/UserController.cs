@@ -3,16 +3,15 @@ using ADOPSEV1._1.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using Org.BouncyCastle.Crypto.Generators;
 using System.Security.Claims;
 
 namespace ADOPSEV1._1.Controllers
 {
     public class UserController : Controller
     {
-        private readonly myDbContext _db;
+        private readonly ApplicationDbContext _db;
 
-        public UserController(myDbContext db)
+        public UserController(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -26,20 +25,21 @@ namespace ADOPSEV1._1.Controllers
         public IActionResult Register(string first_name, string last_name, string email, string password, string username)
         {
 
-            if (ModelState.IsValid) { 
-            User user = new User();
-            user.first_name = HttpContext.Request.Form["first_name"].ToString();
-            user.last_name = HttpContext.Request.Form["last_name"].ToString();
-            user.email = HttpContext.Request.Form["email"].ToString();
-            string typedPass = HttpContext.Request.Form["password"].ToString();
+            if (ModelState.IsValid)
+            {
+                User user = new User();
+                user.first_name = HttpContext.Request.Form["first_name"].ToString();
+                user.last_name = HttpContext.Request.Form["last_name"].ToString();
+                user.email = HttpContext.Request.Form["email"].ToString();
+                string typedPass = HttpContext.Request.Form["password"].ToString();
                 user.password = HashFun.Hash(password);
-            user.username = HttpContext.Request.Form["username"].ToString();
-            user.role = 0;
+                user.username = HttpContext.Request.Form["username"].ToString();
+                user.role = 0;
 
-            _db.users.Add(user);
-            _db.SaveChanges();
+                _db.users.Add(user);
+                _db.SaveChanges();
 
-            return RedirectToAction("Register");
+                return RedirectToAction("Register");
             }
             else
             {
@@ -78,13 +78,13 @@ namespace ADOPSEV1._1.Controllers
                         ViewBag.userName = ClaimTypes.Name;
                         return Redirect("/User/login");
 
-                        
+
                     }
                     else
                     {
                         message = "invalid password";
                     }
-                    
+
                 }
                 else
                 {
@@ -113,6 +113,6 @@ namespace ADOPSEV1._1.Controllers
             return View();
 
         }
-        
+
     }
 }
