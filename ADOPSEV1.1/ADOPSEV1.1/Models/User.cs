@@ -1,7 +1,4 @@
-﻿using ADOPSEV1._1.Data;
-using Microsoft.Data.SqlClient;
-using System.ComponentModel.DataAnnotations;
-using System.Configuration;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ADOPSEV1._1.Models
 {
@@ -28,23 +25,31 @@ namespace ADOPSEV1._1.Models
         [StringLength(150, MinimumLength = 6)]
         [Display(Name = "Password: ")]
         public string password { get; set; }
-       // public string PasswordSalt { get; set; }
+        // public string PasswordSalt { get; set; }
         [Required]
         public string username { get; set; }
 
         public int role { get; set; }
 
-       // public int SaveDetails()
+        public bool validated { get; set; }
+
+        [Required]
+        public int BranchId { get; set; }
+
+        public DateTime CreatedDateTime { get; set; } = DateTime.Now;
+
+
+        // public int SaveDetails()
         //{
-            //string connectionString = configuration.GetConnectionString("Default");
-            //SqlConnection con = new(connectionString);
-            //string query = "INSERT INTO users(Name, Age, City) values ('" + first_name + "','" + last_name + "','" + email + "','" + password + "','" + username + "')";
-            //SqlCommand cmd = new SqlCommand(query, con);
-            //con.Open();
-            //int i = cmd.ExecuteNonQuery();
-            //con.Close();
-            //return i;
-            
+        //string connectionString = configuration.GetConnectionString("Default");
+        //SqlConnection con = new(connectionString);
+        //string query = "INSERT INTO users(Name, Age, City) values ('" + first_name + "','" + last_name + "','" + email + "','" + password + "','" + username + "')";
+        //SqlCommand cmd = new SqlCommand(query, con);
+        //con.Open();
+        //int i = cmd.ExecuteNonQuery();
+        //con.Close();
+        //return i;
+
         //}
 
     }
