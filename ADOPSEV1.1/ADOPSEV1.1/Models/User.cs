@@ -31,6 +31,12 @@ namespace ADOPSEV1._1.Models
 
         public int role { get; set; }
 
+        public bool validated { get; set; }
+
+        [Required]
+        public int BranchId { get; set; }
+
+        public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 
 
         // public int SaveDetails()

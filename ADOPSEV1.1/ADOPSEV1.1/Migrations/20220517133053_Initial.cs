@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace ADOPSEV1._1.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,7 +29,9 @@ namespace ADOPSEV1._1.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     username = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    role = table.Column<int>(type: "int", nullable: false)
+                    role = table.Column<int>(type: "int", nullable: false),
+                    validated = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
