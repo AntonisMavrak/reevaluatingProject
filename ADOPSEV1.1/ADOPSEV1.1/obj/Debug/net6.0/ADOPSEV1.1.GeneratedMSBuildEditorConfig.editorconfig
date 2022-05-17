@@ -83,24 +83,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizs/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenNcQ3JlYXRlLmNzaHRtbA==
+[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizs/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenNcRGVsZXRlLmNzaHRtbA==
+[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizs/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenNcRGV0YWlscy5jc2h0bWw=
+[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizs/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenNcRWRpdC5jc2h0bWw=
+[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizs/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenNcSW5kZXguY3NodG1s
+[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/Error.cshtml]

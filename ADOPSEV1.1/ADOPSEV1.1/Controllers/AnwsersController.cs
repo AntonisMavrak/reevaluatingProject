@@ -1,14 +1,14 @@
 ﻿using ADOPSEV1._1.Data;
 using ADOPSEV1._1.Models;
 using Microsoft.AspNetCore.Mvc;
-
 namespace ADOPSEV1._1.Controllers
 {
-    public class BranchesController : Controller
+
+    public class AnwserController : Controller
     {
         private readonly ApplicationDbContext _db;
 
-        public BranchesController(ApplicationDbContext db)
+        public AnwserController(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -16,6 +16,9 @@ namespace ADOPSEV1._1.Controllers
         {
             return View();
         }
+
+
+
 
 
 
@@ -32,12 +35,12 @@ namespace ADOPSEV1._1.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Branch obj)
+        public IActionResult Create(Anwser obj)
         {
 
             if (ModelState.IsValid)
             {
-                _db.branches.Add(obj);
+                _db.anwsers.Add(obj);
                 _db.SaveChanges();
                 TempData["success"] = "Category created succesfully";
                 return RedirectToAction("Index");
@@ -61,7 +64,7 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.branches.Find(id);
+            var categoryFromDb = _db.anwsers.Find(id);
 
             if (categoryFromDb == null)
             {
@@ -74,12 +77,12 @@ namespace ADOPSEV1._1.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Branch obj)
+        public IActionResult Edit(Anwser obj)
         {
 
             if (ModelState.IsValid)
             {
-                _db.branches.Update(obj);
+                _db.anwsers.Update(obj);
                 _db.SaveChanges();
                 TempData["success"] = "Category updated succesfully";
                 return RedirectToAction("Index");
@@ -103,7 +106,7 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.branches.Find(id);
+            var categoryFromDb = _db.anwsers.Find(id);
 
             if (categoryFromDb == null)
             {
@@ -119,13 +122,13 @@ namespace ADOPSEV1._1.Controllers
         public IActionResult DeletePOST(int? id)
         {
 
-            var obj = _db.branches.Find(id);
+            var obj = _db.anwsers.Find(id);
             if (obj == null)
             {
                 return NotFound();
             }
 
-            _db.branches.Remove(obj);
+            _db.anwsers.Remove(obj);
             _db.SaveChanges();
             TempData["success"] = "Category deleted succesfully";
             return RedirectToAction("Index");

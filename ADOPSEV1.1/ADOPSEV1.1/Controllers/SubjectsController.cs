@@ -11,6 +11,13 @@ namespace ADOPSEV1._1.Controllers
         {
             _db = db;
         }
-
+        public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ADOPSEV1._1.Controllers
 {
-    public class QuestionsController : Controller
+    public class QuizzesController : Controller
     {
         private readonly ApplicationDbContext _db;
 
-        public QuestionsController(ApplicationDbContext db)
+        public QuizzesController(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -19,6 +19,5 @@ namespace ADOPSEV1._1.Controllers
         {
             return View();
         }
-
     }
 }
