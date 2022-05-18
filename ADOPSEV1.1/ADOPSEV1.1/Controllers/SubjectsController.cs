@@ -33,20 +33,37 @@ namespace ADOPSEV1._1.Controllers
             return View();
         }
 
-        //POST
+        //POST =>enroll to lesson
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Subject obj)
+        public IActionResult Create(int lessonInput)
         {
 
-            if (ModelState.IsValid)
+            int users_id;
+            string usr;
+            if (User.Identity.IsAuthenticated)
             {
-                _db.subjects.Add(obj);
-                _db.SaveChanges();
-                TempData["success"] = "Subject created succesfully";
-                return RedirectToAction("Index");
+                usr = User.Identity.Name;
+                var chk = false;
+                users_id = _db.users.Where(u => u.username == usr).Select(u => u.id).FirstOrDefault();
+                var enrolledLessons = _db.userConnectsSubjects.Where(ucs => ucs.userId == users_id).ToList();
+                foreach (var lesson in enrolledLessons)
+                {
+                    if (lesson.lessonId == lessonInput)
+                    {
+                        chk = true;
+                    }
+                }
+                if (!chk)
+                {
+                    _db.userConnectsSubjects.Add(new UserConntectsSubject { lessonId = lessonInput, userId = users_id });
+                    _db.SaveChanges();
+                }
             }
-            return View(obj);
+            IEnumerable<Subject> allLessons = _db.subjects;
+
+
+            return View("Index", allLessons);
 
 
         }
