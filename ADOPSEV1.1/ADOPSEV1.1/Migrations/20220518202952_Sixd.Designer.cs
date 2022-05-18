@@ -3,6 +3,7 @@ using System;
 using ADOPSEV1._1.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADOPSEV1._1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220518202952_Sixd")]
+    partial class Sixd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,21 +61,6 @@ namespace ADOPSEV1._1.Migrations
                     b.HasKey("id");
 
                     b.ToTable("branches");
-                });
-
-            modelBuilder.Entity("ADOPSEV1._1.Models.Lesson", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("id");
-
-                    b.ToTable("lessons");
                 });
 
             modelBuilder.Entity("ADOPSEV1._1.Models.Question", b =>
@@ -216,20 +203,13 @@ namespace ADOPSEV1._1.Migrations
                     b.ToTable("users");
                 });
 
-            modelBuilder.Entity("ADOPSEV1._1.Models.UserConntectsSubject", b =>
+            modelBuilder.Entity("ADOPSEV1._1.Models.UserConnectsSubject", b =>
                 {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("SubjectId")
                         .HasColumnType("int");
 
-                    b.Property<string>("lessonId")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("userId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
-
-                    b.HasKey("id");
 
                     b.ToTable("userConnectsSubjects");
                 });

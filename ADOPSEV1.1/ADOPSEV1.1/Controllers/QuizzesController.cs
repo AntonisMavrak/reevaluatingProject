@@ -16,6 +16,7 @@ namespace ADOPSEV1._1.Controllers
         public IActionResult Index()
         {
             IEnumerable<Quiz> objQuizList = _db.quizzes;
+            ViewBag.Subject = _db.subjects.ToList();
             return View(objQuizList);
         }
 
@@ -28,6 +29,7 @@ namespace ADOPSEV1._1.Controllers
         //GET
         public IActionResult Create()
         {
+            ViewBag.Question = _db.questions.ToList();
             ViewBag.Subject = _db.subjects.ToList();
             return View();
         }
@@ -70,7 +72,10 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.Question = _db.questions.ToList();
             ViewBag.Subject = _db.subjects.ToList();
+
             return View(quizFromDb);
         }
 
@@ -113,6 +118,8 @@ namespace ADOPSEV1._1.Controllers
                 return NotFound();
             }
 
+            ViewBag.Subject = _db.subjects.ToList();
+
             return View(quizFromDb);
         }
 
@@ -149,6 +156,8 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.Subject = _db.subjects.ToList();
 
             return View(quiz);
         }

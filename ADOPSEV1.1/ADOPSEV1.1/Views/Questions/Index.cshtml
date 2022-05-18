@@ -31,7 +31,13 @@
                 @Html.DisplayFor(modelItem => item.text)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.subjectId)
+                @foreach (Subject subject in ViewBag.Subject)
+                {
+                    if (item.subjectId == subject.id)
+                    {
+                        @subject.name
+                    }
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDateTime)
