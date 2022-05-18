@@ -9,19 +9,19 @@
 <ul>
     @ViewBag.users
     
-  @* @foreach(var obj in Model){
+   @foreach(var obj in Model){
         <li>
             <div class="card">
                 
                 <h4>@obj.name</h4>
                <br>
                 <form method="post" asp-action="Create">
-                    <input type="hidden" value=@obj.id>
+                    <input type="hidden" value=@obj.id name="lessonInput">
                     <button type="submit" class="btn btn-primary" value=@obj.id>Enroll Now</button>
                 </form>
             </div>
         </li>
-    }*@
+    }
 </ul>
 
 <style>
