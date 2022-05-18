@@ -36,8 +36,7 @@ namespace ADOPSEV1._1.Models
         [DisplayName("Validated")]
         public bool validated { get; set; }
         [DisplayName("Branch")]
-        [Required]
-        public int BranchId { get; set; }
+        public int branchId { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 
 

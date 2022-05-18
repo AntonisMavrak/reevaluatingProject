@@ -16,5 +16,6 @@ namespace ADOPSEV1._1.Models
         public int subjectId { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 
+
     }
 }

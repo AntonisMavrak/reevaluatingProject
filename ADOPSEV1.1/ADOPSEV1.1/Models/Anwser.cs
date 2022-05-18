@@ -18,5 +18,6 @@ namespace ADOPSEV1._1.Models
         [DisplayName("Correct anwser")]
         public bool isCorrect { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
+
     }
 }
