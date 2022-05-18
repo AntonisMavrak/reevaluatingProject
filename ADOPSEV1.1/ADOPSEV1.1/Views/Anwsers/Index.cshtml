@@ -1,6 +1,4 @@
-﻿<h1>I am here</h1>
-
-@*@model IEnumerable<ADOPSEV1._1.Models.Anwser>
+﻿@model IEnumerable<ADOPSEV1._1.Models.Anwser>
 
 @{
     ViewData["Title"] = "Index";
@@ -20,9 +18,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.questionId)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.isCorrect)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.CreatedDateTime)
             </th>
@@ -38,9 +36,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.questionId)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.isCorrect)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDateTime)
             </td>
@@ -53,4 +51,3 @@
 }
     </tbody>
 </table>
-*@

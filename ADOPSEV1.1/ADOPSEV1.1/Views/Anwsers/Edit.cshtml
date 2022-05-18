@@ -28,11 +28,6 @@
                     <input class="form-check-input" asp-for="isCorrect" /> @Html.DisplayNameFor(model => model.isCorrect)
                 </label>
             </div>
-            <div class="form-group" disabled>
-                <label asp-for="CreatedDateTime" class="control-label"></label>
-                <input asp-for="CreatedDateTime" class="form-control" />
-                <span asp-validation-for="CreatedDateTime" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

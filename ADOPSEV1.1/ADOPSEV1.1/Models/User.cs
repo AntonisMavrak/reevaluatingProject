@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace ADOPSEV1._1.Models
 {
     public class User
     {
         [Key]
+        [DisplayName("Id")]
         public int id { get; set; }
 
         [Required]
@@ -27,15 +29,15 @@ namespace ADOPSEV1._1.Models
         public string password { get; set; }
         // public string PasswordSalt { get; set; }
         [Required]
+        [DisplayName("Username")]
         public string username { get; set; }
-
+        [DisplayName("Role")]
         public int role { get; set; }
-
+        [DisplayName("Validated")]
         public bool validated { get; set; }
-
+        [DisplayName("Branch")]
         [Required]
         public int BranchId { get; set; }
-
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 
 

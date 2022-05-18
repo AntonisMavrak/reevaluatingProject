@@ -15,20 +15,21 @@
                     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Anwsers" asp-action="Create">Anwser</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Subjects" asp-action="Index">Subjects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Branches" asp-action="Create">Branches</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Branches" asp-action="Index">Branches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Questions" asp-action="Create">Questions</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Questions" asp-action="Index">Questions</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Quiz" asp-action="Create">Quiz</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Quizzes" asp-action="Index">Quiz</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Subjects" asp-action="Create">Subjects</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Anwsers" asp-action="Index">Anwser</a>
                 </li>
+                
 
                 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
                 @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
