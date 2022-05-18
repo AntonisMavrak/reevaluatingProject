@@ -1,24 +1,26 @@
 ﻿using ADOPSEV1._1.Data;
 using ADOPSEV1._1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 namespace ADOPSEV1._1.Controllers
 {
-
-    public class AnwserController : Controller
+    public class AnwsersController : Controller
     {
         private readonly ApplicationDbContext _db;
 
-        public AnwserController(ApplicationDbContext db)
+        public AnwsersController(ApplicationDbContext db)
         {
             _db = db;
         }
+
+
+
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Anwser> objAnwserList = _db.anwsers;
+            return View(objAnwserList);
         }
-
-
-
 
 
 
@@ -42,14 +44,13 @@ namespace ADOPSEV1._1.Controllers
             {
                 _db.anwsers.Add(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Category created succesfully";
+                TempData["success"] = "Anwser created succesfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
 
 
         }
-
 
 
 
@@ -64,14 +65,14 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.anwsers.Find(id);
+            var anwserFromDb = _db.anwsers.Find(id);
 
-            if (categoryFromDb == null)
+            if (anwserFromDb == null)
             {
                 return NotFound();
             }
 
-            return View(categoryFromDb);
+            return View(anwserFromDb);
         }
 
         //POST
@@ -84,15 +85,13 @@ namespace ADOPSEV1._1.Controllers
             {
                 _db.anwsers.Update(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Category updated succesfully";
+                TempData["success"] = "Answer updated succesfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
 
 
         }
-
-
 
 
 
@@ -106,14 +105,14 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.anwsers.Find(id);
+            var anwserFromDb = _db.anwsers.Find(id);
 
-            if (categoryFromDb == null)
+            if (anwserFromDb == null)
             {
                 return NotFound();
             }
 
-            return View(categoryFromDb);
+            return View(anwserFromDb);
         }
 
         //POST
@@ -130,9 +129,29 @@ namespace ADOPSEV1._1.Controllers
 
             _db.anwsers.Remove(obj);
             _db.SaveChanges();
-            TempData["success"] = "Category deleted succesfully";
+            TempData["success"] = "Anwser deleted succesfully";
             return RedirectToAction("Index");
 
         }
+
+
+        //GET: Anwsers/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _db.anwsers == null)
+            {
+                return NotFound();
+            }
+
+            var anwser = await _db.anwsers
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (anwser == null)
+            {
+                return NotFound();
+            }
+
+            return View(anwser);
+        }
+
     }
 }

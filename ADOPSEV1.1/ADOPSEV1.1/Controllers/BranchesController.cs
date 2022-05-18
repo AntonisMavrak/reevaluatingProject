@@ -1,6 +1,7 @@
 ﻿using ADOPSEV1._1.Data;
 using ADOPSEV1._1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ADOPSEV1._1.Controllers
 {
@@ -14,7 +15,8 @@ namespace ADOPSEV1._1.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Branch> objBranchList = _db.branches;
+            return View(objBranchList);
         }
 
 
@@ -39,7 +41,7 @@ namespace ADOPSEV1._1.Controllers
             {
                 _db.branches.Add(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Category created succesfully";
+                TempData["success"] = "Branch created succesfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -61,14 +63,14 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.branches.Find(id);
+            var branchFromDb = _db.branches.Find(id);
 
-            if (categoryFromDb == null)
+            if (branchFromDb == null)
             {
                 return NotFound();
             }
 
-            return View(categoryFromDb);
+            return View(branchFromDb);
         }
 
         //POST
@@ -81,7 +83,7 @@ namespace ADOPSEV1._1.Controllers
             {
                 _db.branches.Update(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Category updated succesfully";
+                TempData["success"] = "Branch updated succesfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -103,14 +105,14 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.branches.Find(id);
+            var branchFromDb = _db.branches.Find(id);
 
-            if (categoryFromDb == null)
+            if (branchFromDb == null)
             {
                 return NotFound();
             }
 
-            return View(categoryFromDb);
+            return View(branchFromDb);
         }
 
         //POST
@@ -127,9 +129,28 @@ namespace ADOPSEV1._1.Controllers
 
             _db.branches.Remove(obj);
             _db.SaveChanges();
-            TempData["success"] = "Category deleted succesfully";
+            TempData["success"] = "Branch deleted succesfully";
             return RedirectToAction("Index");
 
+        }
+
+
+        //GET: Branches/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _db.branches == null)
+            {
+                return NotFound();
+            }
+
+            var branch = await _db.branches
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (branch == null)
+            {
+                return NotFound();
+            }
+
+            return View(branch);
         }
     }
 }
