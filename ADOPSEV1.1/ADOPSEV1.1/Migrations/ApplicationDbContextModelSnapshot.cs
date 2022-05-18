@@ -211,6 +211,17 @@ namespace ADOPSEV1._1.Migrations
 
                     b.ToTable("userConnectsSubjects");
                 });
+
+            modelBuilder.Entity("ADOPSEV1._1.Models.UserFinishedQuizzes", b =>
+                {
+                    b.Property<int>("quizId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
+                    b.ToTable("userFinishedQuizzes");
+                });
 #pragma warning restore 612, 618
         }
     }
