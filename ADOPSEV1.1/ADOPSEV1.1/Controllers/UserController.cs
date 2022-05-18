@@ -17,6 +17,7 @@ namespace ADOPSEV1._1.Controllers
         }
         public IActionResult Register()
         {
+            ViewBag.Branch = _db.branches.ToList();
             IEnumerable<User> objUserList = _db.users;
             return View(objUserList);
         }

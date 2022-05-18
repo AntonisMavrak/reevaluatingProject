@@ -11,7 +11,6 @@ namespace ADOPSEV1._1.Models
         [Required]
         [DisplayName("Branch Name")]
         public string name { get; set; }
-        [Editable(false)]
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 
     }

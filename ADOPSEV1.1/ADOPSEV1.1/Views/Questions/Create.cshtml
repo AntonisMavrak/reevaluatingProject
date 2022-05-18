@@ -1,4 +1,6 @@
-﻿@model ADOPSEV1._1.Models.Question
+﻿@model Question
+
+
 
 @{
     ViewData["Title"] = "Create";
@@ -17,10 +19,20 @@
                 <input asp-for="text" class="form-control" />
                 <span asp-validation-for="text" class="text-danger"></span>
             </div>
+
+            
+           
+            
             <div class="form-group">
                 <label asp-for="subjectId" class="control-label"></label>
-                <input asp-for="subjectId" class="form-control" />
-                <span asp-validation-for="subjectId" class="text-danger"></span>
+                <select asp-for="subjectId" class="form-select" aria-label="Default select example">
+                    <option disabled selected > -- select an option -- </option>
+                    @foreach (Subject subject in ViewBag.Subject)
+                    {
+                        <option value="@subject.id">@subject.name</option>
+                    }
+                    </select>
+                <span asp-validation-for="subjectId" class="text-danger"></span>      
             </div>
             
             <div class="form-group">

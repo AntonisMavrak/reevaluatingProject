@@ -25,6 +25,7 @@ namespace ADOPSEV1._1.Controllers
         //GET
         public IActionResult Create()
         {
+            ViewBag.Subject = _db.subjects.ToList();
             return View();
         }
 
@@ -66,7 +67,7 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.Subject = _db.subjects.ToList();
             return View(questionFromDb);
         }
 
