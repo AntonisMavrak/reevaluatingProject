@@ -154,6 +154,13 @@ namespace ADOPSEV1._1.Controllers
 
             return View(question);
         }
+
+        public IActionResult LoadFromDb()
+        {
+            IEnumerable<Question> objQuestionList = _db.questions;
+            return View(objQuestionList);
+        }
+
     }
 
 }

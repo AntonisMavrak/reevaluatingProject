@@ -29,6 +29,7 @@ namespace ADOPSEV1._1.Controllers
         //GET
         public IActionResult Create()
         {
+            ViewBag.Question = _db.questions.ToList();
             ViewBag.Subject = _db.subjects.ToList();
             return View();
         }
@@ -71,7 +72,10 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.Question = _db.questions.ToList();
             ViewBag.Subject = _db.subjects.ToList();
+
             return View(quizFromDb);
         }
 
