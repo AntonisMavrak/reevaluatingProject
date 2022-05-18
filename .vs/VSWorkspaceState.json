@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ADOPSEV1.1",
+    "\\ADOPSEV1.1\\ADOPSEV1.1",
+    "\\ADOPSEV1.1\\ADOPSEV1.1\\Views",
+    "\\ADOPSEV1.1\\ADOPSEV1.1\\Views\\Questions"
   ],
-  "SelectedNode": "\\C:\\Users\\chris\\Source\\Repos\\reevaluatingProject",
+  "SelectedNode": "\\ADOPSEV1.1\\ADOPSEV1.1\\Views\\Questions\\Create.cshtml",
   "PreviewInSolutionExplorer": false
 }

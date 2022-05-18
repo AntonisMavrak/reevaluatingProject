@@ -128,17 +128,17 @@ namespace ADOPSEV1._1.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.CreateTable(
-                name: "userConnectsSubjects",
-                columns: table => new
-                {
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    SubjectId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
+           // migrationBuilder.CreateTable(
+              //  name: "userConnectsSubjects",
+               // columns: table => new
+                //{
+                 //   UserId = table.Column<int>(type: "int", nullable: false),
+                  //  SubjectId = table.Column<int>(type: "int", nullable: false)
+                //},
+               // constraints: table =>
+               // {
+               // })
+                //.Annotation("MySql:CharSet", "utf8mb4");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -164,8 +164,8 @@ namespace ADOPSEV1._1.Migrations
             migrationBuilder.DropTable(
                 name: "subjects");
 
-            migrationBuilder.DropTable(
-                name: "userConnectsSubjects");
+          //  migrationBuilder.DropTable(
+          //      name: "userConnectsSubjects");
 
             migrationBuilder.DropColumn(
                 name: "BranchId",

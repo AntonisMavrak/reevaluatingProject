@@ -3,6 +3,7 @@ using System;
 using ADOPSEV1._1.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADOPSEV1._1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220518193132_UserConnectsSubject")]
+    partial class UserConnectsSubject
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,9 +86,6 @@ namespace ADOPSEV1._1.Migrations
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<int>("madeBy")
-                        .HasColumnType("int");
 
                     b.Property<int>("subjectId")
                         .HasColumnType("int");
