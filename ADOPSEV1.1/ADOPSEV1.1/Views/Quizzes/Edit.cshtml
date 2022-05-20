@@ -9,50 +9,110 @@
 <h4>Quiz</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="id" />
-            <div class="form-group">
-                <label asp-for="title" class="control-label"></label>
-                <input asp-for="title" class="form-control" />
-                <span asp-validation-for="title" class="text-danger"></span>
+    <div class="col">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="id" />
+                        <div class="form-group">
+                            <label asp-for="title" class="control-label"></label>
+                            <input asp-for="title" class="form-control" />
+                            <span asp-validation-for="title" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="subjectId" class="control-label"></label>
+                            <select asp-for="subjectId" class="form-select" aria-label="Default select example">
+                                <option disabled selected> -- select an option -- </option>
+                                @foreach (Subject subject in ViewBag.Subject)
+                                {
+                                    <option value="@subject.id">@subject.name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="subjectId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="minutes" class="control-label"></label>
+                            <input asp-for="minutes" class="form-control" />
+                            <span asp-validation-for="minutes" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="numberOfQuestions" class="control-label"></label>
+                            <input asp-for="numberOfQuestions" class="form-control" />
+                            <span asp-validation-for="numberOfQuestions" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="madeBy" class="control-label"></label>
+                            <input asp-for="madeBy" class="form-control" />
+                            <span asp-validation-for="madeBy" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>
+                    </form>
+                    <br />
+                    <div>
+                        <a asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col">
+                    <div>
+                        <ul class="list-group overflow-auto" style="max-height: 500px;">
+                            <li class="list-group-item">
+                                @foreach (Question question in ViewBag.Question)
+                                {
+                                    <div class="card w-100 p-0">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">@question.text</h5>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <dt>Created By:</dt>
+                                                    <dd class="card-text">sadgsgad</dd>
+                                                </div>
+                                                <div class="col">
+                                                    <dt>Date Created:</dt>
+                                                    <dd class="card-text">@question.CreatedDateTime</dd>
+                                                </div>
+                                            </div>
+                                            <a href="#" class="btn btn-danger float-end">Remove</a>
+                                        </div>
+                                    </div>
+                                }
+
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <a asp-controller="Questions" asp-action="LoadFromDb" class="btn btn-primary mx-2">
+                                    Load Question
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a asp-controller="Questions" asp-action="Create" class="btn btn-secondary mx-2">
+                                    Create Question
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="subjectId" class="control-label"></label>
-                <select asp-for="subjectId" class="form-select" aria-label="Default select example">
-                    <option disabled selected > -- select an option -- </option>
-                    @foreach (Subject subject in ViewBag.Subject)
-                    {
-                        <option value="@subject.id">@subject.name</option>
-                    }
-                    </select>
-                <span asp-validation-for="subjectId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="minutes" class="control-label"></label>
-                <input asp-for="minutes" class="form-control" />
-                <span asp-validation-for="minutes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="numberOfQuestions" class="control-label"></label>
-                <input asp-for="numberOfQuestions" class="form-control" />
-                <span asp-validation-for="numberOfQuestions" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="madeBy" class="control-label"></label>
-                <input asp-for="madeBy" class="form-control" />
-                <span asp-validation-for="madeBy" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
 

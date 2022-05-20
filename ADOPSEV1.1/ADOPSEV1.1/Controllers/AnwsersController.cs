@@ -18,6 +18,7 @@ namespace ADOPSEV1._1.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Questions = _db.questions.ToList();
             IEnumerable<Anwser> objAnwserList = _db.anwsers;
             return View(objAnwserList);
         }

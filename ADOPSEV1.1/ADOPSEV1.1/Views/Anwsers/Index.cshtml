@@ -6,9 +6,9 @@
 
 <h1>Index</h1>
 
-<p>
+@*<p>
     <a asp-action="Create">Create New</a>
-</p>
+</p>*@
 <table class="table">
     <thead>
         <tr>
@@ -18,9 +18,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.questionId)
             </th>
-            @*<th>
+            <th>
                 @Html.DisplayNameFor(model => model.isCorrect)
-            </th>*@
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreatedDateTime)
             </th>
@@ -34,11 +34,17 @@
                 @Html.DisplayFor(modelItem => item.text)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.questionId)
+                    @foreach(Question question in ViewBag.Questions)
+                    {
+                        if(item.questionId == question.id)
+                        {
+                            @question.text
+                        }
+                    }
             </td>
-            @*<td>
+            <td>
                 @Html.DisplayFor(modelItem => item.isCorrect)
-            </td>*@
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDateTime)
             </td>

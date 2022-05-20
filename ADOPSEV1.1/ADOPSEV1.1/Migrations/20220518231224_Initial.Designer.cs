@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADOPSEV1._1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220518182457_Lesson")]
-    partial class Lesson
+    [Migration("20220518231224_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -63,21 +63,6 @@ namespace ADOPSEV1._1.Migrations
                     b.ToTable("branches");
                 });
 
-            modelBuilder.Entity("ADOPSEV1._1.Models.Lesson", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("id");
-
-                    b.ToTable("lessons");
-                });
-
             modelBuilder.Entity("ADOPSEV1._1.Models.Question", b =>
                 {
                     b.Property<int>("id")
@@ -86,6 +71,9 @@ namespace ADOPSEV1._1.Migrations
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<int>("madeBy")
+                        .HasColumnType("int");
 
                     b.Property<int>("subjectId")
                         .HasColumnType("int");
@@ -224,6 +212,17 @@ namespace ADOPSEV1._1.Migrations
                         .HasColumnType("int");
 
                     b.ToTable("userConnectsSubjects");
+                });
+
+            modelBuilder.Entity("ADOPSEV1._1.Models.UserDidQuiz", b =>
+                {
+                    b.Property<int>("quizId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
+                    b.ToTable("userDidQuizzes");
                 });
 #pragma warning restore 612, 618
         }

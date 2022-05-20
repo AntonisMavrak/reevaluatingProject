@@ -2430,3 +2430,8 @@ C:\Users\chris\Documents\GitHub\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\bin\De
 C:\Users\chris\Documents\GitHub\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\chris\Documents\GitHub\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\chris\Documents\GitHub\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\obj\Debug\net6.0\ADOPSEV1.1.MvcApplicationPartsAssemblyInfo.cs
+D:\Coding\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Coding\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Coding\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Coding\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Coding\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\obj\Debug\net6.0\ADOPSEV1.1.MvcApplicationPartsAssemblyInfo.cs

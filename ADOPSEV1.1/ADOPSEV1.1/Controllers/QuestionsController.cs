@@ -27,21 +27,29 @@ namespace ADOPSEV1._1.Controllers
         public IActionResult Create()
         {
             ViewBag.Subject = _db.subjects.ToList();
+            ViewBag.Questions = _db.questions.ToList();
             return View();
         }
+
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Question obj)
+        public IActionResult Create(DualModel obj)
         {
 
             if (ModelState.IsValid)
             {
-                _db.questions.Add(obj);
+
+                _db.questions.Add(obj.question);
+                _db.anwsers.Add(obj.anwser);
                 _db.SaveChanges();
                 TempData["success"] = "Question created succesfully";
                 return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["error"] = "Question creation failed";
             }
             return View(obj);
 
@@ -62,28 +70,46 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
-            var questionFromDb = _db.questions.Find(id);
 
-            if (questionFromDb == null)
+            DualModel num = new DualModel();
+            num.question = _db.questions.Find(id);
+
+            num.anwser = _db.anwsers.FirstOrDefault(u => u.questionId == id);
+
+            if (num.question == null)
+            {
+                return NotFound();
+            }
+
+            if (num.anwser == null)
             {
                 return NotFound();
             }
             ViewBag.Subject = _db.subjects.ToList();
-            return View(questionFromDb);
+            ViewBag.Questions = _db.questions.ToList();
+
+            return View(num);
         }
+
+
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Question obj)
+        public IActionResult Edit(DualModel obj)
         {
 
             if (ModelState.IsValid)
             {
-                _db.questions.Update(obj);
+                _db.questions.Update(obj.question);
+                _db.anwsers.Update(obj.anwser);
                 _db.SaveChanges();
                 TempData["success"] = "Question updated succesfully";
                 return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["error"] = "Question update failed";
             }
             return View(obj);
 
