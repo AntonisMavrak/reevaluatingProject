@@ -28,21 +28,22 @@ namespace ADOPSEV1._1.Controllers
         {
             ViewBag.Subject = _db.subjects.ToList();
             ViewBag.Questions = _db.questions.ToList();
+            ViewBag.Anwsers = _db.anwsers.ToList();
             return View();
         }
+
 
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(DualModel obj)
+        public IActionResult CreateQuestion(DualModel obj)
         {
 
             if (ModelState.IsValid)
             {
 
                 _db.questions.Add(obj.question);
-                _db.anwsers.Add(obj.anwser);
                 _db.SaveChanges();
                 TempData["success"] = "Question created succesfully";
                 return RedirectToAction("Index");
@@ -52,6 +53,28 @@ namespace ADOPSEV1._1.Controllers
                 TempData["error"] = "Question creation failed";
             }
             return View(obj);
+
+
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateAnwser(DualModel obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _db.anwsers.Add(obj.anwser);
+                _db.SaveChanges();
+                TempData["success"] = "Anwser created succesfully";
+                return RedirectToAction("Create", "Questions");
+            }
+            else
+            {
+                TempData["error"] = "Anwser creation failed";
+            }
+            return RedirectToAction("Create", "Questions");
 
 
         }
