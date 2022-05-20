@@ -18,6 +18,18 @@ namespace ADOPSEV1._1.Models
         public int madeBy { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 
+        public Question(int id, string text, int subjectId, int madeBy)
+        {
+            this.id = id;
+            this.text = text;
+            this.subjectId = subjectId;
+            this.madeBy = madeBy;
+            CreatedDateTime = DateTime.Now;
+        }
 
+        public Question()
+        {
+
+        }
     }
 }
