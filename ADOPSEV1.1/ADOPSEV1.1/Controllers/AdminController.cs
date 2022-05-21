@@ -15,7 +15,7 @@ namespace ADOPSEV1._1.Controllers
         }
 
 
-        //test
+        //Check to see if user can enter panel
         public Boolean canEnterPanel()
         {
 

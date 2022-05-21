@@ -1,0 +1,51 @@
+﻿
+@model ADOPSEV1._1.Models.User
+@{
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="id" />
+                
+                <div class="form-group">
+                    <label asp-for="first_name" class="control-label"></label>
+                    <input asp-for="first_name" class="form-control" />
+                    <span asp-validation-for="first_name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="last_name" class="control-label"></label>
+                    <input asp-for="last_name" class="form-control" />
+                    <span asp-validation-for="last_name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="email" class="control-label"></label>
+                    <input asp-for="email" class="form-control" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="username" class="control-label"></label>
+                    <input asp-for="username" class="form-control" />
+                    <span asp-validation-for="username" class="text-danger"></span>
+                </div>
+               <input type="hidden" asp-for="password"/>
+                <div class="form-group">
+                    <label asp-for="role" class="control-label"></label>
+                    @*<input  class="form-control" />*@
+                    <select asp-for="role">
+                        <option value=0>Μαθητής</option>
+                        <option value=2>Καθηγητής</option>
+                        <option value=4>Γραμματεία</option>
+
+                    </select>
+                    <span asp-validation-for="role" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
