@@ -129,20 +129,8 @@ namespace ADOPSEV1._1.Migrations
                 name: "userConnectsSubjects",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    SubjectId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "userDidQuizzes",
-                columns: table => new
-                {
                     userId = table.Column<int>(type: "int", nullable: false),
-                    quizId = table.Column<int>(type: "int", nullable: false)
+                    subjectId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -202,9 +190,6 @@ namespace ADOPSEV1._1.Migrations
 
             migrationBuilder.DropTable(
                 name: "userConnectsSubjects");
-
-            migrationBuilder.DropTable(
-                name: "userDidQuizzes");
 
             migrationBuilder.DropTable(
                 name: "users");
