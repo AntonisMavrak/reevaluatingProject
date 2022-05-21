@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ADOPSEV1._1.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <td><h4>Όνομα</h4></td>
+            <td><h4>Επώνυμο</h4></td>
+            <td><h4>Email</h4></td>
+            <td><h4>Παράρτημα</h4></td>
+            <td><h4>Ρόλος</h4></td>
+            <td><h4>Επιβεβαιωμένος</h4></td>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var obj in Model) {
+        <tr>
+            <td>@obj.first_name</td>
+            <td>@obj.last_name</td>
+            <td>@obj.email</td>
+            <td>@obj.branchId</td>
+            <td>@obj.role</td>
+            <td>@Html.DisplayNameFor(model => model.validated)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@obj.id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@obj.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<br />
+<br />
+<table>
+    <tr>
+        <td>Συνολικά εγγεγραμμένοι χρήστες</td>
+    </tr>
+    <tr>
+        <td>
+            @ViewBag.TotalUsers
+        </td>
+    </tr>
+</table>
+<br />
+<br />
+
+<table>
+    <tr>
+        <td>
+            Αντιστοιχία χρηστών σε ρόλους
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Καθηγητές 
+        </td>
+        <td>
+            Μαθητές
+        </td>
+    </tr>
+    <tr>
+        <td>@ViewBag.teachers</td>
+        <td>@ViewBag.students</td>
+    </tr>
+</table>

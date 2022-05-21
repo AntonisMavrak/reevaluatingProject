@@ -34,6 +34,13 @@
                 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
                 @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
                 {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Secretary" asp-action="Index">Secretary</a>
+                    </li>
+                    <li class="nav-item dropdown">
                     <li class="nav-item dropdown me-auto" >
                         <a asp-controller="User" asp-action="login" class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Hello, @User.Identity.Name                    
