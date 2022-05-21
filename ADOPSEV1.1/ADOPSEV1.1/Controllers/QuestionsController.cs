@@ -7,6 +7,9 @@ namespace ADOPSEV1._1.Controllers
 {
     public class QuestionsController : Controller
     {
+        public static string questionName;
+        public static Nullable<int> subjectId;
+
         private readonly ApplicationDbContext _db;
 
         public QuestionsController(ApplicationDbContext db)
@@ -26,6 +29,8 @@ namespace ADOPSEV1._1.Controllers
         //GET
         public IActionResult Create()
         {
+            ViewBag.questionText = questionName;
+            ViewBag.subjectId = subjectId;
             ViewBag.Subject = _db.subjects.ToList();
             ViewBag.Questions = _db.questions.ToList();
             ViewBag.Anwsers = _db.anwsers.ToList();
@@ -40,6 +45,8 @@ namespace ADOPSEV1._1.Controllers
         public IActionResult CreateQuestion(DualModel obj)
         {
 
+            questionName = null;
+            subjectId = null;
             if (ModelState.IsValid)
             {
 
@@ -65,6 +72,8 @@ namespace ADOPSEV1._1.Controllers
 
             if (ModelState.IsValid)
             {
+                questionName = obj.question.text;
+                subjectId = obj.question.subjectId;
                 _db.anwsers.Add(obj.anwser);
                 _db.SaveChanges();
                 TempData["success"] = "Anwser created succesfully";
@@ -75,6 +84,27 @@ namespace ADOPSEV1._1.Controllers
                 TempData["error"] = "Anwser creation failed";
             }
             return RedirectToAction("Create", "Questions");
+
+
+        }
+
+        public IActionResult CreateAnwserQuestion(DualModel obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                questionName = obj.question.text;
+                subjectId = obj.question.subjectId;
+                _db.anwsers.Add(obj.anwser);
+                _db.SaveChanges();
+                TempData["success"] = "Anwser created succesfully";
+                return RedirectToAction("Create", "Questions");
+            }
+            else
+            {
+                TempData["error"] = "Anwser creation failed";
+            }
+            return RedirectToAction("Create", "Questions", new { id = obj.question.id });
 
 
         }
@@ -96,8 +126,7 @@ namespace ADOPSEV1._1.Controllers
 
             DualModel num = new DualModel();
             num.question = _db.questions.Find(id);
-
-            num.anwser = _db.anwsers.FirstOrDefault(u => u.questionId == id);
+            num.anwser = new Anwser(0, "dummy", 0, false);
 
             if (num.question == null)
             {
@@ -109,6 +138,7 @@ namespace ADOPSEV1._1.Controllers
                 return NotFound();
             }
             ViewBag.Subject = _db.subjects.ToList();
+            ViewBag.Anwsers = _db.anwsers.ToList();
             ViewBag.Questions = _db.questions.ToList();
 
             return View(num);
@@ -177,7 +207,9 @@ namespace ADOPSEV1._1.Controllers
                 return NotFound();
             }
 
+            _db.anwsers.RemoveRange(_db.anwsers.Where(x => x.questionId == id));
             _db.questions.Remove(obj);
+
             _db.SaveChanges();
             TempData["success"] = "Question deleted succesfully";
             return RedirectToAction("Index");

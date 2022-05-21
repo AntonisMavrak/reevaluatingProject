@@ -23,12 +23,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/DeleteQuestion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xEZWxldGVRdWVzdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/EditQuestion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xFZGl0UXVlc3Rpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Index.cshtml]

@@ -9,6 +9,8 @@
     int idQuestion = 0;
     int counter = 0;
     bool isfalse = false;
+    string subName = null;
+    String subOption = null;
     foreach (Question item in ViewBag.Questions)
     {
         iteration++;
@@ -26,6 +28,17 @@
             }
         }
 
+        @if (ViewBag.subjectId != null)
+        {
+            @foreach (Subject subject in ViewBag.Subject)
+            {
+                if (ViewBag.subjectId == subject.id)
+                {
+                    subName = subject.name;
+                }
+
+            }
+        }
 
     }
 
@@ -52,11 +65,20 @@
                         <div class="form-group">
                             <label asp-for="question.subjectId" class="control-label"></label>
                             <select asp-for="question.subjectId" class="form-select" aria-label="Default select example">
-                                <option disabled selected> -- select an option -- </option>
+                                @if (ViewBag.subjectId == null)
+                                {
+                                    <option disabled selected> -- select an option -- </option>
+                                }
+                                else
+                                {
+                                     <option selected value="ViewBag.subjectId">@subName</option>
+
+                                }
+
 
                                 @foreach (Subject subject in ViewBag.Subject)
                                 {
-                                    <option value="@subject.id">@subject.name</option>
+                                    <option value="@subject.id">@subject.name</option>          
                                 }
                             </select>
                             <span asp-validation-for="question.subjectId" class="text-danger"></span>
@@ -116,7 +138,7 @@
                                                         </div>
                                                         <a asp-controller="Anwsers" asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger float-end pr-2">Delete</a>
                                                         <a asp-controller="Anwsers" asp-action="Edit" asp-route-id="@item.id" class="btn btn-secondary float-end">Edit</a>
-                                                        
+
 
                                                     </div>
                                                 </div>

@@ -19,5 +19,18 @@ namespace ADOPSEV1._1.Models
         public bool isCorrect { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 
+        public Anwser(int id, string text, int questionId, bool isCorrect)
+        {
+            this.id = id;
+            this.text = text;
+            this.questionId = questionId;
+            this.isCorrect = isCorrect;
+            this.CreatedDateTime = DateTime.Now;
+        }
+
+        public Anwser()
+        {
+
+        }
     }
 }

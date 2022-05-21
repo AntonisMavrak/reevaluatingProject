@@ -1,7 +1,7 @@
 ﻿@model ADOPSEV1._1.Models.Anwser
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "EditQuestion";
 
     int iteration = 0;
     int idQuestion = 0;
@@ -21,7 +21,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="EditQuestion">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="id" />
             <div class="form-group">
@@ -57,6 +57,6 @@
 </div>
 <div>
 
-    <a asp-action="Edit" asp-controller="Questions">Back to Question</a>
+    <a asp-action="Edit" asp-controller="Questions" asp-route-id="@idQuestion">>Back to Question</a>
 </div>
 
