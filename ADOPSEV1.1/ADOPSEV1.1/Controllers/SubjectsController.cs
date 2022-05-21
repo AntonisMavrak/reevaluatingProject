@@ -21,6 +21,12 @@ namespace ADOPSEV1._1.Controllers
             return View(objSubjectList);
         }
 
+        public IActionResult Enrollment()
+        {
+            IEnumerable<Subject> objSubjectList = _db.subjects;
+            return View(objSubjectList);
+        }
+
 
 
 

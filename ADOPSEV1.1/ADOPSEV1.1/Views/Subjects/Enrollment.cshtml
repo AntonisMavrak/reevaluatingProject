@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<ADOPSEV1._1.Models.Subject>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Enrollment";
 }
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -39,3 +36,34 @@
 }
     </tbody>
 </table>
+*@
+<ul>
+    
+   @foreach(var obj in Model){
+        <li>
+            <div class="card">
+                
+                <h4>@obj.name</h4>
+               <br>
+                <form method="post" asp-action="Create">
+                    <input type="hidden" value=@obj.id name="lessonInput">
+                    <button type="submit" class="btn btn-primary">Enroll Now</button>
+                </form>
+            </div>
+        </li>
+    }
+</ul>
+
+<style>
+    .card{
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    ul{
+        list-style: none;
+    }
+    li{
+        margin: 5px 0px;
+    }
+</style>
