@@ -26,7 +26,7 @@
             }
         }
 
-        
+
     }
 
 }
@@ -66,14 +66,11 @@
                             <input type="submit" value="Create" class="btn btn-primary" />
                         </div>
 
-                        <br />
-                        <div>
-                            <a asp-action="Index">Back to List</a>
-                        </div>
+
                     </div>
 
 
-                    <div class="col">
+                    <div class="col ">
                         <div id="Anwsers">
                             <div class="row">
                                 <div class="col">
@@ -82,7 +79,7 @@
                                 <div class="col">
                                     <h4 id="counterH4">@counter</h4>
                                 </div>
-                                <ul class="list-group overflow-auto" style="max-height: 500px;">
+                                <ul class="list-group overflow-auto" style="max-height: 270px;">
                                     <li class="list-group-item">
                                         @foreach (Anwser item in ViewBag.Anwsers)
                                         {
@@ -117,7 +114,10 @@
 
 
                                                         </div>
-                                                        <a href="#" class="btn btn-danger float-end" id="rmvBtn">Remove</a>
+                                                        <a asp-controller="Anwsers" asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger float-end pr-2">Delete</a>
+                                                        <a asp-controller="Anwsers" asp-action="Edit" asp-route-id="@item.id" class="btn btn-secondary float-end">Edit</a>
+                                                        
+
                                                     </div>
                                                 </div>
 
@@ -198,7 +198,7 @@
 </div>
 
 
-
+<br />
 
 <div class="col">
 
@@ -256,7 +256,10 @@
 
                 </ul>
             </div>
-
+            <br />
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
 
 
 

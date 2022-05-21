@@ -73,6 +73,8 @@ namespace ADOPSEV1._1.Controllers
                 return NotFound();
             }
 
+            ViewBag.Questions = _db.questions.ToList();
+
             return View(anwserFromDb);
         }
 
@@ -87,7 +89,7 @@ namespace ADOPSEV1._1.Controllers
                 _db.anwsers.Update(obj);
                 _db.SaveChanges();
                 TempData["success"] = "Answer updated succesfully";
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Questions");
             }
             return View(obj);
 
@@ -131,7 +133,7 @@ namespace ADOPSEV1._1.Controllers
             _db.anwsers.Remove(obj);
             _db.SaveChanges();
             TempData["success"] = "Anwser deleted succesfully";
-            return RedirectToAction("Index");
+            return RedirectToAction("Create", "Questions");
 
         }
 
