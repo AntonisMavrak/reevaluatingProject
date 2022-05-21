@@ -8,9 +8,9 @@ namespace ADOPSEV1._1.Models
     {
         [Required]
 
-        public int UserId { get; set; }
+        public int userId { get; set; }
         [Required]
 
-        public int SubjectId { get; set; }
+        public int subjectId { get; set; }
     }
 }
