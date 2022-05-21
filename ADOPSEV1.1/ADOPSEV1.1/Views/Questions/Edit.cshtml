@@ -2,8 +2,22 @@
 
 @{
     ViewData["Title"] = "Edit";
-}
 
+    int counter = 0;
+
+    foreach (Question item in ViewBag.Questions)
+    {
+
+    @foreach (Anwser key in ViewBag.Anwsers)
+        {
+
+            if (key.questionId == Model.question.id)
+            {
+                counter++;
+            }
+        }
+    }
+}
 <h1>Edit</h1>
 
 <h4>Question</h4>
@@ -44,82 +58,66 @@
                         </div>
 
 
-
-                        <br />
-                        <div>
-                            <a asp-action="Index">Back to List</a>
-                        </div>
                     </div>
-                    
 
 
 
 
 
 
-                    <div class="col">
+                    <div class="col ">
                         <div id="Anwsers">
                             <div class="row">
                                 <div class="col">
                                     <h4 class="float-end">Anwsers:</h4>
                                 </div>
                                 <div class="col">
-                                    <h4 id="counterH4">1</h4>
+                                    <h4 id="counterH4">@counter</h4>
                                 </div>
-                                <ul class="list-group overflow-auto" style="max-height: 500px;">
+                                <ul class="list-group overflow-auto" style="max-height: 270px;">
                                     <li class="list-group-item">
+                                        @foreach (Anwser item in ViewBag.Anwsers)
+                                        {
 
-                                        <div class="card w-100 p-0" id="cards">
+                                            if (item.questionId == Model.question.id)
+                                            {
 
-                                            <div class="card-body">
-                                                <h5 class="card-title">Anwser</h5>
-                                                <div>
-                                                    <input type="hidden" asp-for="anwser.questionId" />
-                                                    <div>
-                                                        <dt class="">Anwser's text</dt>
-                                                        <dd class="card-text mb-1">
-                                                            <label asp-for="anwser.text" class="control-label"></label>
-                                                            <input asp-for="anwser.text" class="form-control" />
-                                                            <span asp-validation-for="anwser.text" class="text-danger"></span>
-                                                        </dd>
-                                                    </div>
-                                                    <div>
-                                                        <dt>Correct Anwser</dt>
-                                                        <dd class="card-text">
-                                                            <div class="form-check">
-                                                                <label class="form-check-label">
-                                                                    <input class="form-check-input" asp-for="anwser.isCorrect" /> @Html.DisplayNameFor(model => model.anwser.isCorrect)
-                                                                </label>
+                                                <div class="card w-100 p-0" id="cards">
+
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Anwser</h5>
+                                                        <div>
+
+                                                            <div>
+                                                                <dt class="">Anwser's text</dt>
+                                                                <dd class="card-text mb-1">
+                                                                    @item.text
+                                                                </dd>
                                                             </div>
-                                                        </dd>
-                                                    </div>
-                                                    <div class="form-group" hidden>
-                                                        <label asp-for="anwser.questionId" class="control-label"></label>
-                                                        @{
-                                                            int iteration = 0;
+                                                            <div>
+                                                                <dt>Correct Anwser</dt>
+                                                                <dd class="card-text">
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            @item.isCorrect
+                                                                        </label>
+                                                                    </div>
+                                                                </dd>
+                                                            </div>
+                                                            <div class="form-group" hidden>
+                                                            </div>
 
-                                                            foreach (Question item in ViewBag.Questions)
-                                                            {
-                                                                iteration++;
-                                                                if (iteration == ViewBag.Questions.Count)
-                                                                {
-                                                                    var id = item.id;
-                                                                    id++;
-                                                                    <input asp-for="anwser.questionId" class="form-control" value="@id" />
 
-                                                                }
-                                                            }
+                                                        </div>
+                                                        <a asp-controller="Anwsers" asp-action="DeleteQuestion" asp-route-id="@item.id" class="btn btn-danger float-end pr-2">Delete</a>
+                                                        <a asp-controller="Anwsers" asp-action="EditQuestion" asp-route-id="@item.id" class="btn btn-secondary float-end">Edit</a>
 
-                                                        }
 
-                                                        <span asp-validation-for="anwser.questionId" class="text-danger"></span>
                                                     </div>
                                                 </div>
-                                                <a href="#" class="btn btn-danger float-end" id="rmvBtn">Remove</a>
-                                            </div>
-                                        </div>
 
-
+                                            }
+                                        }
 
                                     </li>
 
@@ -127,47 +125,119 @@
                             </div>
 
                             <br />
-                            <div class="col">
-                                <a class="btn btn-primary mx-2" id="addBtn">
-                                    Add Anwser
-                                </a>
-                            </div>
+
                         </div>
                     </div>
 
-
-
-
-
-
-
-
-
-
-
+                </div>
             </div>
+
         </form>
     </div>
 </div>
-                
 
-<script>
-    var count = 1;
-    document.getElementById("addBtn").onclick = function() {
+<br />
 
-        count++;
-        var container = document.getElementById("cards");
-        container.appendChild(container.cloneNode(true));
+<div class="col">
 
-        var h4 = document.getElementById("counterH4");
-        h4.innerHTML = count;
+    <h4>Create New Anwser</h4>
+    <form asp-action="CreateAnwserQuestion">
+        <div>
+            <div class="row">
 
-    }
-    document.getElementById("rmvBtn").onclick = function() {
-        count--;
-        var h4 = document.getElementById("counterH4");
-        h4.innerHTML = count;
-    }
-</script>
+                <ul class="list-group overflow-auto" style="max-height: 500px;">
+                    <li class="list-group-item">
+
+                        <div class="card w-100 p-0" id="cards">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Anwser</h5>
+                                <div>
+                                    <div>
+                                        <dt class="">Anwser's text</dt>
+                                        <dd class="card-text mb-1">
+                                            <label asp-for="anwser.text" class="control-label"></label>
+                                            <input asp-for="anwser.text" class="form-control" />
+                                            <span asp-validation-for="anwser.text" class="text-danger"></span>
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>Correct Anwser</dt>
+                                        <dd class="card-text">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" asp-for="anwser.isCorrect" /> @Html.DisplayNameFor(model => model.anwser.isCorrect)
+                                                </label>
+                                            </div>
+                                        </dd>
+                                    </div>
+                                    <div class="form-group" hidden>
+                                        <label asp-for="anwser.questionId" class="control-label"></label>
+                                        @{
+
+                                                    <input asp-for="anwser.questionId" class="form-control" value="Model.question.id" />
+
+                                        }
+
+                                        <span asp-validation-for="anwser.questionId" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <input type="submit" value="Add" class="btn btn-success float-end" />
+
+                            </div>
+                        </div>
+
+
+
+                    </li>
+
+                </ul>
+            </div>
+            <br />
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+
+
+
+
+
+
+
+            @*This is the dummy data*@
+            <div class="col" hidden>
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="question.text" class="control-label"></label>
+                    <select asp-for="question.text" class="form-select" aria-label="Default select example">
+                        <option selected value="dummy"></option>
+                    </select>
+                    <span asp-validation-for="question.text" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="question.subjectId" class="control-label"></label>
+                    <select asp-for="question.subjectId" class="form-select" aria-label="Default select example">
+
+                        <option selected value="Model.question.id"></option>
+
+
+                    </select>
+                    <span asp-validation-for="question.subjectId" class="text-danger"></span>
+                </div>
+                <br />
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+    </form>
+</div>
 
 
