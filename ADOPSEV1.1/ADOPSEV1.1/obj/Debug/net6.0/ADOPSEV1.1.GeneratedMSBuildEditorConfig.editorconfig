@@ -15,6 +15,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\chris\Documents\GitHub\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -101,6 +121,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFjY2Vzc0RlbmllZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/Error.cshtml]

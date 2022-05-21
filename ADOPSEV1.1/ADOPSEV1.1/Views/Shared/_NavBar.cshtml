@@ -26,6 +26,9 @@
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Anwsers" asp-action="Index">Anwser</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                </li>
 
                 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
                 @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
