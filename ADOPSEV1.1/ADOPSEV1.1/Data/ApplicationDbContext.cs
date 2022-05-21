@@ -19,9 +19,7 @@ namespace ADOPSEV1._1.Data
         public DbSet<Subject> subjects { get; set; }
         public DbSet<QuestionAwsers> questionAwsers { get; set; }
         public DbSet<QuizQuestions> quizQuestions { get; set; }
-        
-        public DbSet<UserConntectsSubject> userConnectsSubjects { get; set; }
-
+        public DbSet<UserConnectsSubject> userConnectsSubjects { get; set; }
 
     }
 }

@@ -1,58 +1,58 @@
 ﻿@model IEnumerable<ADOPSEV1._1.Models.Question>
 
 @{
-	ViewData["Title"] = "LoadFromDb";
+    ViewData["Title"] = "LoadFromDb";
 }
 
 <h1>Existing Questions</h1>
 
 <div class="container">
-	<br/>
-	<div class="row justify-content-center">
-						<div class="col-12 col-md-10 col-lg-8">
-							<form class="card card-sm">
-								<div class="card-body row no-gutters align-items-center">
-									<div class="col-auto">
-										<i class="fas fa-search h4 text-body"></i>
-									</div>
-									<!--end of col-->
-									<div class="col">
-										<input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search Questions..">
-									</div>
-									<!--end of col-->
-									<div class="col-auto">
-										<button class="btn btn-lg btn-success" type="submit">Search</button>
-									</div>
-									<!--end of col-->
-								</div>
-							</form>
-						</div>
-						<!--end of col-->
-					</div>
+    <br />
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <form class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fas fa-search h4 text-body"></i>
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search Questions..">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+        <!--end of col-->
+    </div>
 </div>
 <br />
 <ul class="list-group overflow-auto" style="height: 550px;">
-	<li class="list-group-item">
-		@foreach (var item in Model) 
-		{
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">@Html.DisplayFor(modelItem => item.text)</h5>
-					<div class="row">
-						<div class="col">
-							<dt>Created By:</dt>
-							<dd class="card-text"></dd>
-						</div>
-						<div class="col">
-							<dt>Date Created:</dt>
-							<dd class="card-text">@Html.DisplayFor(modelItem => item.CreatedDateTime)</dd>
-						</div>
-					</div>
-					<a href="#" class="btn btn-primary">Add</a>
-				</div>
-			</div>
-		}
+    <li class="list-group-item">
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.text)</h5>
+                    <div class="row">
+                        <div class="col">
+                            <dt>Created By:</dt>
+                            <dd class="card-text"></dd>
+                        </div>
+                        <div class="col">
+                            <dt>Date Created:</dt>
+                            <dd class="card-text">@Html.DisplayFor(modelItem => item.CreatedDateTime)</dd>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add</a>
+                </div>
+            </div>
+        }
 
-	</li>
+    </li>
 
 </ul>

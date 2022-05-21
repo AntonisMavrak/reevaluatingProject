@@ -7,6 +7,9 @@ namespace ADOPSEV1._1.Controllers
 {
     public class QuestionsController : Controller
     {
+        public static string questionName;
+        public static Nullable<int> subjectId;
+
         private readonly ApplicationDbContext _db;
 
         public QuestionsController(ApplicationDbContext db)
@@ -26,24 +29,82 @@ namespace ADOPSEV1._1.Controllers
         //GET
         public IActionResult Create()
         {
+            ViewBag.questionText = questionName;
+            ViewBag.subjectId = subjectId;
             ViewBag.Subject = _db.subjects.ToList();
+            ViewBag.Questions = _db.questions.ToList();
+            ViewBag.Anwsers = _db.anwsers.ToList();
             return View();
+        }
+
+
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateQuestion(DualModel obj)
+        {
+
+            questionName = null;
+            subjectId = null;
+            if (ModelState.IsValid)
+            {
+
+                _db.questions.Add(obj.question);
+                _db.SaveChanges();
+                TempData["success"] = "Question created succesfully";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["error"] = "Question creation failed";
+            }
+            return View(obj);
+
+
         }
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Question obj)
+        public IActionResult CreateAnwser(DualModel obj)
         {
 
             if (ModelState.IsValid)
             {
-                _db.questions.Add(obj);
+                questionName = obj.question.text;
+                subjectId = obj.question.subjectId;
+                _db.anwsers.Add(obj.anwser);
                 _db.SaveChanges();
-                TempData["success"] = "Question created succesfully";
-                return RedirectToAction("Index");
+                TempData["success"] = "Anwser created succesfully";
+                return RedirectToAction("Create", "Questions");
             }
-            return View(obj);
+            else
+            {
+                TempData["error"] = "Anwser creation failed";
+            }
+            return RedirectToAction("Create", "Questions");
+
+
+        }
+
+        public IActionResult CreateAnwserQuestion(DualModel obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                questionName = obj.question.text;
+                subjectId = obj.question.subjectId;
+                _db.anwsers.Add(obj.anwser);
+                _db.SaveChanges();
+                TempData["success"] = "Anwser created succesfully";
+                return RedirectToAction("Create", "Questions");
+            }
+            else
+            {
+                TempData["error"] = "Anwser creation failed";
+            }
+            return RedirectToAction("Create", "Questions", new { id = obj.question.id });
 
 
         }
@@ -62,28 +123,46 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
-            var questionFromDb = _db.questions.Find(id);
 
-            if (questionFromDb == null)
+            DualModel num = new DualModel();
+            num.question = _db.questions.Find(id);
+            num.anwser = new Anwser(0, "dummy", 0, false);
+
+            if (num.question == null)
+            {
+                return NotFound();
+            }
+
+            if (num.anwser == null)
             {
                 return NotFound();
             }
             ViewBag.Subject = _db.subjects.ToList();
-            return View(questionFromDb);
+            ViewBag.Anwsers = _db.anwsers.ToList();
+            ViewBag.Questions = _db.questions.ToList();
+
+            return View(num);
         }
+
+
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Question obj)
+        public IActionResult Edit(DualModel obj)
         {
 
             if (ModelState.IsValid)
             {
-                _db.questions.Update(obj);
+                _db.questions.Update(obj.question);
+                _db.anwsers.Update(obj.anwser);
                 _db.SaveChanges();
                 TempData["success"] = "Question updated succesfully";
                 return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["error"] = "Question update failed";
             }
             return View(obj);
 
@@ -128,7 +207,9 @@ namespace ADOPSEV1._1.Controllers
                 return NotFound();
             }
 
+            _db.anwsers.RemoveRange(_db.anwsers.Where(x => x.questionId == id));
             _db.questions.Remove(obj);
+
             _db.SaveChanges();
             TempData["success"] = "Question deleted succesfully";
             return RedirectToAction("Index");

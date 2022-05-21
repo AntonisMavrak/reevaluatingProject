@@ -18,6 +18,7 @@ namespace ADOPSEV1._1.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Questions = _db.questions.ToList();
             IEnumerable<Anwser> objAnwserList = _db.anwsers;
             return View(objAnwserList);
         }
@@ -61,6 +62,8 @@ namespace ADOPSEV1._1.Controllers
         //GET
         public IActionResult Edit(int? id)
         {
+
+
             if (id == null || id == 0)
             {
                 return NotFound();
@@ -71,6 +74,8 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.Questions = _db.questions.ToList();
 
             return View(anwserFromDb);
         }
@@ -86,7 +91,47 @@ namespace ADOPSEV1._1.Controllers
                 _db.anwsers.Update(obj);
                 _db.SaveChanges();
                 TempData["success"] = "Answer updated succesfully";
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Questions");
+            }
+            return View(obj);
+
+
+        }
+
+        //GET
+        public IActionResult EditQuestion(int? id)
+        {
+
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var anwserFromDb = _db.anwsers.Find(id);
+
+            if (anwserFromDb == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.Questions = _db.questions.ToList();
+
+            return View(anwserFromDb);
+
+
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditQuestion(Anwser obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _db.anwsers.Update(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Answer updated succesfully";
+                return RedirectToAction("Edit", "Questions", new { id = obj.questionId });
             }
             return View(obj);
 
@@ -130,7 +175,45 @@ namespace ADOPSEV1._1.Controllers
             _db.anwsers.Remove(obj);
             _db.SaveChanges();
             TempData["success"] = "Anwser deleted succesfully";
-            return RedirectToAction("Index");
+            return RedirectToAction("Create", "Questions");
+
+        }
+
+        //GET
+        public IActionResult DeleteQuestion(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var anwserFromDb = _db.anwsers.Find(id);
+
+            if (anwserFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(anwserFromDb);
+        }
+
+
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteQuestionPOST(int? id)
+        {
+
+            var obj = _db.anwsers.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _db.anwsers.Remove(obj);
+            _db.SaveChanges();
+            TempData["success"] = "Anwser deleted succesfully";
+            return RedirectToAction("Edit", "Questions", new { id = obj.questionId });
 
         }
 

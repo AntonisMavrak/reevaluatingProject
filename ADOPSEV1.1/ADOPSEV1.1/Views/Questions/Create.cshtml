@@ -1,9 +1,47 @@
-﻿@model Question
+﻿@model DualModel
 
 
 
 @{
     ViewData["Title"] = "Create";
+
+    int iteration = 0;
+    int idQuestion = 0;
+    int counter = 0;
+    bool isfalse = false;
+    string subName = null;
+    String subOption = null;
+    foreach (Question item in ViewBag.Questions)
+    {
+        iteration++;
+        if (iteration == ViewBag.Questions.Count)
+        {
+            idQuestion = item.id;
+        }
+
+        @foreach (Anwser key in ViewBag.Anwsers)
+        {
+
+            if (key.questionId == idQuestion)
+            {
+                counter++;
+            }
+        }
+
+        @if (ViewBag.subjectId != null)
+        {
+            @foreach (Subject subject in ViewBag.Subject)
+            {
+                if (ViewBag.subjectId == subject.id)
+                {
+                    subName = subject.name;
+                }
+
+            }
+        }
+
+    }
+
 }
 
 <h1>Create</h1>
@@ -11,38 +49,278 @@
 <h4>Question</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="text" class="control-label"></label>
-                <input asp-for="text" class="form-control" />
-                <span asp-validation-for="text" class="text-danger"></span>
+    <div class="col">
+        <form asp-action="CreateQuestion">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="question.text" class="control-label"></label>
+                            <input asp-for="question.text" class="form-control" />
+                            <span asp-validation-for="question.text" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="question.subjectId" class="control-label"></label>
+                            <select asp-for="question.subjectId" class="form-select" aria-label="Default select example">
+                                @if (ViewBag.subjectId == null)
+                                {
+                                    <option disabled selected> -- select an option -- </option>
+                                }
+                                else
+                                {
+                                     <option selected value="ViewBag.subjectId">@subName</option>
+
+                                }
+
+
+                                @foreach (Subject subject in ViewBag.Subject)
+                                {
+                                    <option value="@subject.id">@subject.name</option>          
+                                }
+                            </select>
+                            <span asp-validation-for="question.subjectId" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col ">
+                        <div id="Anwsers">
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="float-end">Anwsers:</h4>
+                                </div>
+                                <div class="col">
+                                    <h4 id="counterH4">@counter</h4>
+                                </div>
+                                <ul class="list-group overflow-auto" style="max-height: 270px;">
+                                    <li class="list-group-item">
+                                        @foreach (Anwser item in ViewBag.Anwsers)
+                                        {
+
+                                            if (item.questionId == idQuestion)
+                                            {
+
+                                                <div class="card w-100 p-0" id="cards">
+
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Anwser</h5>
+                                                        <div>
+
+                                                            <div>
+                                                                <dt class="">Anwser's text</dt>
+                                                                <dd class="card-text mb-1">
+                                                                    @item.text
+                                                                </dd>
+                                                            </div>
+                                                            <div>
+                                                                <dt>Correct Anwser</dt>
+                                                                <dd class="card-text">
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            @item.isCorrect
+                                                                        </label>
+                                                                    </div>
+                                                                </dd>
+                                                            </div>
+                                                            <div class="form-group" hidden>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <a asp-controller="Anwsers" asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger float-end pr-2">Delete</a>
+                                                        <a asp-controller="Anwsers" asp-action="Edit" asp-route-id="@item.id" class="btn btn-secondary float-end">Edit</a>
+
+
+                                                    </div>
+                                                </div>
+
+                                            }
+                                        }
+
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+                @*This is the dummy data*@
+                <div hidden>
+                    <div>
+                        <dt class="">Anwser's text</dt>
+                        <dd class="card-text mb-1">
+                            <label asp-for="anwser.text" class="control-label"></label>
+
+                            <select asp-for="anwser.text" class="form-select" aria-label="Default select example">
+                                <option selected value="dummy"></option>
+                            </select>
+
+                            <span asp-validation-for="anwser.text" class="text-danger"></span>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt>Correct Anwser</dt>
+                        <dd class="card-text">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <label asp-for="anwser.isCorrect" class="control-label"></label>
+
+                                    <select asp-for="anwser.isCorrect" class="form-select" aria-label="Default select example">
+                                        <option selected value="@isfalse"></option>
+                                    </select>
+
+                                    <span asp-validation-for="anwser.isCorrect" class="text-danger"></span>
+                                </label>
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="form-group" hidden>
+                        <label asp-for="anwser.questionId" class="control-label"></label>
+
+                        <select asp-for="anwser.questionId" class="form-select" aria-label="Default select example">
+                            <option selected value="0"></option>
+                        </select>
+
+                        <span asp-validation-for="anwser.questionId" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
 
-            
-           
-            
-            <div class="form-group">
-                <label asp-for="subjectId" class="control-label"></label>
-                <select asp-for="subjectId" class="form-select" aria-label="Default select example">
-                    <option disabled selected > -- select an option -- </option>
-                    @foreach (Subject subject in ViewBag.Subject)
-                    {
-                        <option value="@subject.id">@subject.name</option>
-                    }
-                    </select>
-                <span asp-validation-for="subjectId" class="text-danger"></span>      
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+
+
+
+
+
+
+
+
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+
+<br />
+
+<div class="col">
+
+    <h4>Create New Anwser</h4>
+    <form asp-action="CreateAnwser">
+        <div>
+            <div class="row">
+
+                <ul class="list-group overflow-auto" style="max-height: 500px;">
+                    <li class="list-group-item">
+
+                        <div class="card w-100 p-0" id="cards">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Anwser</h5>
+                                <div>
+                                    <div>
+                                        <dt class="">Anwser's text</dt>
+                                        <dd class="card-text mb-1">
+                                            <label asp-for="anwser.text" class="control-label"></label>
+                                            <input asp-for="anwser.text" class="form-control" />
+                                            <span asp-validation-for="anwser.text" class="text-danger"></span>
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>Correct Anwser</dt>
+                                        <dd class="card-text">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" asp-for="anwser.isCorrect" /> @Html.DisplayNameFor(model => model.anwser.isCorrect)
+                                                </label>
+                                            </div>
+                                        </dd>
+                                    </div>
+                                    <div class="form-group" hidden>
+                                        <label asp-for="anwser.questionId" class="control-label"></label>
+                                        @{
+
+                                            <input asp-for="anwser.questionId" class="form-control" value="@idQuestion" />
+
+                                        }
+
+                                        <span asp-validation-for="anwser.questionId" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <input type="submit" value="Add" class="btn btn-success float-end" />
+
+                            </div>
+                        </div>
+
+
+
+                    </li>
+
+                </ul>
+            </div>
+            <br />
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+
+
+
+
+
+
+
+            @*This is the dummy data*@
+            <div class="col" hidden>
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="question.text" class="control-label"></label>
+                    <select asp-for="question.text" class="form-select" aria-label="Default select example">
+                        <option selected value="dummy"></option>
+                    </select>
+                    <span asp-validation-for="question.text" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="question.subjectId" class="control-label"></label>
+                    <select asp-for="question.subjectId" class="form-select" aria-label="Default select example">
+                        <option selected value="0"></option>
+
+
+                    </select>
+                    <span asp-validation-for="question.subjectId" class="text-danger"></span>
+                </div>
+                <br />
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+    </form>
 </div>
+
 

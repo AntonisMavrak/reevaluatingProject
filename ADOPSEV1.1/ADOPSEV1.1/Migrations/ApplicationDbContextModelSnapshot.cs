@@ -61,21 +61,6 @@ namespace ADOPSEV1._1.Migrations
                     b.ToTable("branches");
                 });
 
-            modelBuilder.Entity("ADOPSEV1._1.Models.Lesson", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("id");
-
-                    b.ToTable("lessons");
-                });
-
             modelBuilder.Entity("ADOPSEV1._1.Models.Question", b =>
                 {
                     b.Property<int>("id")
@@ -216,22 +201,26 @@ namespace ADOPSEV1._1.Migrations
                     b.ToTable("users");
                 });
 
-            modelBuilder.Entity("ADOPSEV1._1.Models.UserConntectsSubject", b =>
+            modelBuilder.Entity("ADOPSEV1._1.Models.UserConnectsSubject", b =>
                 {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("SubjectId")
                         .HasColumnType("int");
 
-                    b.Property<string>("lessonId")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.ToTable("userConnectsSubjects");
+                });
+
+            modelBuilder.Entity("ADOPSEV1._1.Models.UserDidQuiz", b =>
+                {
+                    b.Property<int>("quizId")
+                        .HasColumnType("int");
 
                     b.Property<int>("userId")
                         .HasColumnType("int");
 
-                    b.HasKey("id");
-
-                    b.ToTable("userConnectsSubjects");
+                    b.ToTable("userDidQuizzes");
                 });
 #pragma warning restore 612, 618
         }

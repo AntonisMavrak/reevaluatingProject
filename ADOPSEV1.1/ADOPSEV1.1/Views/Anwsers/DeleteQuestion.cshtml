@@ -37,9 +37,9 @@
         </dd>
     </dl>
     
-    <form asp-action="DeletePOST">
+    <form asp-action="DeleteQuestionPOST">
         <input type="hidden" asp-for="id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Create" asp-controller="Questions">Back to Question</a>
+        <a asp-action="Edit" asp-controller="Questions" asp-route-id="@Model.questionId">Back to Question</a>
     </form>
 </div>
