@@ -87,11 +87,17 @@ namespace ADOPSEV1._1.Migrations
 
             modelBuilder.Entity("ADOPSEV1._1.Models.QuestionAwsers", b =>
                 {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<int>("anwserId")
                         .HasColumnType("int");
 
                     b.Property<int>("questionId")
                         .HasColumnType("int");
+
+                    b.HasKey("id");
 
                     b.ToTable("questionAwsers");
                 });
@@ -129,11 +135,17 @@ namespace ADOPSEV1._1.Migrations
 
             modelBuilder.Entity("ADOPSEV1._1.Models.QuizQuestions", b =>
                 {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<int>("questionId")
                         .HasColumnType("int");
 
                     b.Property<int>("quizId")
                         .HasColumnType("int");
+
+                    b.HasKey("id");
 
                     b.ToTable("quizQuestions");
                 });
@@ -203,11 +215,17 @@ namespace ADOPSEV1._1.Migrations
 
             modelBuilder.Entity("ADOPSEV1._1.Models.UserConnectsSubject", b =>
                 {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<int>("subjectId")
                         .HasColumnType("int");
 
                     b.Property<int>("userId")
                         .HasColumnType("int");
+
+                    b.HasKey("id");
 
                     b.ToTable("userConnectsSubjects");
                 });

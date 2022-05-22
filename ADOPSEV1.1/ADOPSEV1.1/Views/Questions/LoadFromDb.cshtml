@@ -2,10 +2,12 @@
 
 @{
     ViewData["Title"] = "LoadFromDb";
+    bool isIn;
 }
 
 <h1>Existing Questions</h1>
 
+@*Search Bar*@
 <div class="container">
     <br />
     <div class="row justify-content-center">
@@ -15,9 +17,21 @@
                     <div class="col-auto">
                         <i class="fas fa-search h4 text-body"></i>
                     </div>
+
                     <!--end of col-->
                     <div class="col">
                         <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search Questions..">
+                    </div>
+                    <div class="col-2">
+                        <select class="form-select" aria-label="Default select example">
+
+                            <option disabled selected> -- Select a Subject -- </option>
+
+                            @foreach (Subject subject in ViewBag.Subjects)
+                            {
+                                <option id="subjectOption" value="@subject.id">@subject.name</option>
+                            }
+                        </select>
                     </div>
                     <!--end of col-->
                     <div class="col-auto">
@@ -30,29 +44,78 @@
         <!--end of col-->
     </div>
 </div>
+
 <br />
-<ul class="list-group overflow-auto" style="height: 550px;">
+<ul class="list-group overflow-auto" style="height: 530px;">
     <li class="list-group-item">
+
         @foreach (var item in Model)
         {
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.text)</h5>
-                    <div class="row">
-                        <div class="col">
-                            <dt>Created By:</dt>
-                            <dd class="card-text"></dd>
+
+
+            
+            isIn = false;
+            foreach (QuizQuestions qQ in ViewBag.QuizQuestions)
+            {
+                if (item.id == qQ.questionId & qQ.quizId == ViewBag.QuizId)
+                {
+                    isIn = true;
+                    break;
+                }
+            }
+
+
+
+
+            if (!isIn)
+            {
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.text)</h5>
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <dt>Created By:</dt>
+                                    @foreach (User user in ViewBag.Users)
+                                    {
+                                        if (user.id == item.madeBy)
+                                        {
+                                            <dd class="card-text">@user.last_name @user.first_name</dd>
+                                        }
+                                    }
+
+                                </div>
+                                <div class="row">
+                                    <dt>Subject:</dt>
+                                    @foreach (Subject subject in ViewBag.Subjects)
+                                    {
+                                        if (subject.id == item.subjectId)
+                                        {
+                                            <dd class="card-text">@subject.name</dd>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <dt>Date Created:</dt>
+                                    <dd class="card-text">@Html.DisplayFor(modelItem => item.CreatedDateTime)</dd>
+                                </div>
+
+
+                            </div>
                         </div>
-                        <div class="col">
-                            <dt>Date Created:</dt>
-                            <dd class="card-text">@Html.DisplayFor(modelItem => item.CreatedDateTime)</dd>
-                        </div>
+                        <a asp-action="AddToQuiz" asp-route-idQuestion="@item.id" asp-route-idQuiz="@ViewBag.QuizId" class="btn btn-primary float-end btn-lg">Add To Quiz</a>
                     </div>
-                    <a href="#" class="btn btn-primary">Add</a>
                 </div>
-            </div>
+            }
         }
 
-    </li>
 
+    </li>
 </ul>
+<br />
+<a asp-action="Create" asp-controller="Quizzes" class="btn btn-secondary">Back to Quiz</a>
+
+
