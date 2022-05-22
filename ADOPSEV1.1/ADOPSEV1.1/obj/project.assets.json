@@ -1616,6 +1616,15 @@
           "lib/net6.0/Pomelo.EntityFrameworkCore.MySql.dll": {}
         }
       },
+      "RestSharp/107.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/RestSharp.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -5689,6 +5698,24 @@
         "lib/net6.0/Pomelo.EntityFrameworkCore.MySql.xml",
         "pomelo.entityframeworkcore.mysql.6.0.1.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
+      ]
+    },
+    "RestSharp/107.3.0": {
+      "sha512": "qu+A+VAnVLX3OeWVNm11UJz0aVErqSfYqIiOUbJM9x98uLymCOoL/oXRAjMb6XHra27WXxHmzy9EKEOKXWR6Pw==",
+      "type": "package",
+      "path": "restsharp/107.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/RestSharp.dll",
+        "lib/net5.0/RestSharp.xml",
+        "lib/net6.0/RestSharp.dll",
+        "lib/net6.0/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.107.3.0.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -9852,24 +9879,25 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.5",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.5",
       "Pomelo.EntityFrameworkCore.MySql >= 6.0.1",
+      "RestSharp >= 107.3.0",
       "Swashbuckle.AspNetCore >= 6.3.0",
       "System.Security.Claims >= 4.3.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\chris\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Coding\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj",
+      "projectUniqueName": "C:\\Users\\chris\\Documents\\GitHub\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj",
       "projectName": "ADOPSEV1.1",
-      "projectPath": "D:\\Coding\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\Coding\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\obj\\",
+      "projectPath": "C:\\Users\\chris\\Documents\\GitHub\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj",
+      "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chris\\Documents\\GitHub\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9917,6 +9945,10 @@
             "target": "Package",
             "version": "[6.0.1, )"
           },
+          "RestSharp": {
+            "target": "Package",
+            "version": "[107.3.0, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.3.0, )"
@@ -9944,7 +9976,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

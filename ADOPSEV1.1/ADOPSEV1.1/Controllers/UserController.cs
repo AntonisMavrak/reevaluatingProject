@@ -3,6 +3,7 @@ using ADOPSEV1._1.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 using System.Security.Claims;
 
 namespace ADOPSEV1._1.Controllers
@@ -23,7 +24,7 @@ namespace ADOPSEV1._1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(string first_name, string last_name, string email, string password, string username)
+        public IActionResult Register(string first_name, string last_name, string email, string password, string username, int BranchId)
         {
 
             if (ModelState.IsValid)
@@ -32,6 +33,7 @@ namespace ADOPSEV1._1.Controllers
                 user.first_name = HttpContext.Request.Form["first_name"].ToString();
                 user.last_name = HttpContext.Request.Form["last_name"].ToString();
                 user.email = HttpContext.Request.Form["email"].ToString();
+                user.branchId = Int32.Parse(HttpContext.Request.Form["BranchId"]);
                 string typedPass = HttpContext.Request.Form["password"].ToString();
                 user.password = HashFun.Hash(password);
                 user.username = HttpContext.Request.Form["username"].ToString();
@@ -62,22 +64,34 @@ namespace ADOPSEV1._1.Controllers
             string message = "";
             using (var db = _db)
             {
-                var chkUser = db.users.Where(x => x.username == login.username).FirstOrDefault();
+                User chkUser;
+                Boolean isEmail = IsValidEmail(login.username);
+                if (isEmail)
+                {
+                    chkUser = db.users.Where(x => x.email == login.username).FirstOrDefault();
+                }
+                else
+                {
+                    chkUser = db.users.Where(x => x.username == login.username).FirstOrDefault();
+                }
                 if (chkUser != null)
                 {
                     if (string.Compare(HashFun.Hash(login.password), chkUser.password) == 0)
                     {
                         var userName = User.FindFirstValue(ClaimTypes.Name);
+                        //var userN = User.FindFirstValue(ClaimTypes.Role);
                         var claims = new List<Claim>
                         {
-                            new Claim(ClaimTypes.Name, login.username),
+                            new Claim(ClaimTypes.Name, chkUser.username),
+                            new Claim(ClaimTypes.Role , chkUser.role.ToString()),
                         };
 
                         var claimsIdentity = new ClaimsIdentity(claims, "login");
 
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
                         ViewBag.userName = ClaimTypes.Name;
-                        return Redirect("/User/login");
+                        
+                         return Redirect("/User/login");
 
 
                     }
@@ -93,26 +107,25 @@ namespace ADOPSEV1._1.Controllers
                     return View();
                 }
             }
-            //ViewBag.Message = message;
-
-            // initial basic check of searching user
-            /* User user = _db.users.Where(x => x.username == username).FirstOrDefault();
-             if (user != null)
-             {
-                 if (user.password == password)
-                 {
-                     ViewBag.Message = "Exist";
-                 }
-                 return View();
-             }
-             else
-             {
-                 ViewBag.Message = "heheh";
-                 return View();
-             }*/
+            
             ViewBag.message = message;
             return View();
 
+        }
+
+     
+
+        bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
     }
