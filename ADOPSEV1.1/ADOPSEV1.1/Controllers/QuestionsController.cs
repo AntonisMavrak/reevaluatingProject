@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ADOPSEV1._1.Controllers
 {
+
     public class QuestionsController : Controller
     {
         public static string questionName;
@@ -236,12 +237,46 @@ namespace ADOPSEV1._1.Controllers
             return View(question);
         }
 
-        public IActionResult LoadFromDb()
+        //GET
+        public IActionResult LoadFromDb(int? id)
         {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            ViewBag.QuizQuestions = _db.quizQuestions.ToList();
+            ViewBag.QuizId = id;
+            ViewBag.Subjects = _db.subjects.ToList();
+            ViewBag.Users = _db.users.ToList();
             IEnumerable<Question> objQuestionList = _db.questions;
             return View(objQuestionList);
         }
 
-    }
+        //POST
+        public IActionResult AddToQuiz(int idQuiz, int idQuestion)
+        {
 
+
+            foreach (QuizQuestions item in _db.quizQuestions)
+            {
+                if (item.questionId == idQuestion && item.quizId == idQuiz)
+                {
+                    TempData["error"] = "Question already in Quiz";
+                    return RedirectToAction("LoadFromDb", new { id = idQuiz });
+                }
+            }
+            if (idQuestion == null || idQuestion == 0 || idQuiz == null || idQuiz == 0)
+            {
+                return NotFound();
+            }
+
+
+            TempData["success"] = "Question added to Quiz";
+            _db.quizQuestions.Add(new QuizQuestions { questionId = idQuestion, quizId = idQuiz });
+            _db.SaveChanges();
+            return RedirectToAction("LoadFromDb", new { id = idQuiz });
+
+        }
+
+    }
 }

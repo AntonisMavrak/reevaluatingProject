@@ -62,6 +62,7 @@ namespace ADOPSEV1._1.Controllers
         //POST =>enroll to lesson
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public IActionResult Enroll(int lessonInput)
         {
 

@@ -50,4 +50,12 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+            "SetQuestion",                                  // Route name
+            "{controller}/{action}/{idQuiz}/{idQuestion}",  // URL with parameters
+            new { controller = "Home", action = "Index" }  // Parameter defaults
+        );
+
+
+
 app.Run();

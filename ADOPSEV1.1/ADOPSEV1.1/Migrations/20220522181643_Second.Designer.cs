@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADOPSEV1._1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220521175113_Initial")]
-    partial class Initial
+    [Migration("20220522181643_Second")]
+    partial class Second
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,11 +89,17 @@ namespace ADOPSEV1._1.Migrations
 
             modelBuilder.Entity("ADOPSEV1._1.Models.QuestionAwsers", b =>
                 {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<int>("anwserId")
                         .HasColumnType("int");
 
                     b.Property<int>("questionId")
                         .HasColumnType("int");
+
+                    b.HasKey("id");
 
                     b.ToTable("questionAwsers");
                 });
@@ -131,11 +137,17 @@ namespace ADOPSEV1._1.Migrations
 
             modelBuilder.Entity("ADOPSEV1._1.Models.QuizQuestions", b =>
                 {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<int>("questionId")
                         .HasColumnType("int");
 
                     b.Property<int>("quizId")
                         .HasColumnType("int");
+
+                    b.HasKey("id");
 
                     b.ToTable("quizQuestions");
                 });
@@ -205,11 +217,17 @@ namespace ADOPSEV1._1.Migrations
 
             modelBuilder.Entity("ADOPSEV1._1.Models.UserConnectsSubject", b =>
                 {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<int>("subjectId")
                         .HasColumnType("int");
 
                     b.Property<int>("userId")
                         .HasColumnType("int");
+
+                    b.HasKey("id");
 
                     b.ToTable("userConnectsSubjects");
                 });

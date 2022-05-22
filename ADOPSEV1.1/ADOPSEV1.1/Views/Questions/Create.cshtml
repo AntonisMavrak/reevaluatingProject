@@ -6,7 +6,7 @@
     ViewData["Title"] = "Create";
 
     int iteration = 0;
-    int idQuestion = 0;
+    int idQuestion = 1;
     int counter = 0;
     bool isfalse = false;
     string subName = null;
@@ -16,6 +16,7 @@
         iteration++;
         if (iteration == ViewBag.Questions.Count)
         {
+            
             idQuestion = item.id;
             idQuestion++;
         }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ADOPSEV1._1.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Second : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,11 +51,14 @@ namespace ADOPSEV1._1.Migrations
                 name: "questionAwsers",
                 columns: table => new
                 {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     questionId = table.Column<int>(type: "int", nullable: false),
                     anwserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_questionAwsers", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -81,11 +84,14 @@ namespace ADOPSEV1._1.Migrations
                 name: "quizQuestions",
                 columns: table => new
                 {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     quizId = table.Column<int>(type: "int", nullable: false),
                     questionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_quizQuestions", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -129,11 +135,14 @@ namespace ADOPSEV1._1.Migrations
                 name: "userConnectsSubjects",
                 columns: table => new
                 {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     userId = table.Column<int>(type: "int", nullable: false),
                     subjectId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_userConnectsSubjects", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
