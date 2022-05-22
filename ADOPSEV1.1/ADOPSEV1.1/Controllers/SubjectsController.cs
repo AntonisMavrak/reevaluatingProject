@@ -21,6 +21,12 @@ namespace ADOPSEV1._1.Controllers
             return View(objSubjectList);
         }
 
+        public IActionResult Enrollment()
+        {
+            IEnumerable<Subject> objSubjectList = _db.subjects;
+            return View(objSubjectList);
+        }
+
 
 
 
@@ -33,10 +39,30 @@ namespace ADOPSEV1._1.Controllers
             return View();
         }
 
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Subject obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _db.subjects.Add(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Subject created succesfully";
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+
+
+        }
+
+
         //POST =>enroll to lesson
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(int lessonInput)
+        public IActionResult Enroll(int lessonInput)
         {
 
             int users_id;
@@ -49,14 +75,14 @@ namespace ADOPSEV1._1.Controllers
                 var enrolledLessons = _db.userConnectsSubjects.Where(ucs => ucs.userId == users_id).ToList();
                 foreach (var lesson in enrolledLessons)
                 {
-                    if (lesson.lessonId == lessonInput)
+                    if (lesson.subjectId == lessonInput)
                     {
                         chk = true;
                     }
                 }
                 if (!chk)
                 {
-                    _db.userConnectsSubjects.Add(new UserConntectsSubject { lessonId = lessonInput, userId = users_id });
+                    _db.userConnectsSubjects.Add(new UserConnectsSubject { subjectId = lessonInput, userId = users_id });
                     _db.SaveChanges();
                 }
             }
