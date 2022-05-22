@@ -84,12 +84,13 @@ namespace ADOPSEV1._1.Controllers
                 {
                     _db.userConnectsSubjects.Add(new UserConnectsSubject { subjectId = lessonInput, userId = users_id });
                     _db.SaveChanges();
+                    TempData["success"] = "Enrolled successfully";
                 }
             }
             IEnumerable<Subject> allLessons = _db.subjects;
 
 
-            return View("Index", allLessons);
+            return View("Enrollment", allLessons);
 
 
         }

@@ -6,64 +6,38 @@
 
 <h1>Index</h1>
 
-@*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedDateTime)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDateTime)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-*@
-<ul>
-    
-   @foreach(var obj in Model){
-        <li>
-            <div class="card">
-                
-                <h4>@obj.name</h4>
-               <br>
-                <form method="post" asp-action="Create">
-                    <input type="hidden" value=@obj.id name="lessonInput">
-                    <button type="submit" class="btn btn-primary">Enroll Now</button>
-                </form>
-            </div>
-        </li>
-    }
-</ul>
+
+<div class="overflow-auto" style="max-height: 700px;">
+    <ul>
+
+        @foreach (var obj in Model)
+        {
+            <li>
+                <div class="card">
+
+                    <h4>@obj.name</h4>
+                    <br>
+                    <form method="post" asp-action="Enroll">
+                        <input type="hidden" value=@obj.id name="lessonInput">
+                        <input type="submit" value="Enroll Now" class="btn btn-primary" />
+                    </form>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
 
 <style>
-    .card{
+    .card {
         padding: 10px;
         border: 1px solid black;
     }
 
-    ul{
+    ul {
         list-style: none;
     }
-    li{
+
+    li {
         margin: 5px 0px;
     }
 </style>

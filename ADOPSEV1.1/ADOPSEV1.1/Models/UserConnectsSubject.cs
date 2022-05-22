@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ADOPSEV1._1.Models
 {
-    [Keyless]
+
     public class UserConnectsSubject
     {
+        [Key]
+        public int id { get; set; }
         [Required]
 
         public int userId { get; set; }
