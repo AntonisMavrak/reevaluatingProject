@@ -1,4 +1,5 @@
-﻿
+﻿@using System.Security.Claims
+
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container-fluid">
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">e-Quiz</a>
@@ -21,25 +22,34 @@
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Quizzes" asp-action="Index">Quiz</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Anwsers" asp-action="Index">Anwser</a>
-                </li>
                 
-
-
+                @if(User.HasClaim(ClaimTypes.Role, "2"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Anwsers" asp-action="Index">Anwser</a>
+                    </li>
+                }
+                else if (User.HasClaim(ClaimTypes.Role, "4"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Secretary" asp-action="Index">Secretary</a>
+                    </li>
+                }
+                else if(User.HasClaim(ClaimTypes.Role, "6"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                    </li>
+                }
 
                 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
                 @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
-                { <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Secretary" asp-action="Index">Secretary</a>
-                    </li>
+                { 
                     <li class="nav-item dropdown"> </li>
                     <li class="nav-item dropdown me-auto" >
                         <a asp-controller="User" asp-action="login" class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Hello, @User.Identity.Name                    
+                        Hello, @User.Identity.Name  
+                                            
                         </a>
                         <div class="dropdown-menu text-align-center" aria-labelledby="navbarDropdown">
                             <a class="nav-link dropdown-item" >Dashboard</a>

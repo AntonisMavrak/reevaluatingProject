@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AQStJ1wo9GCemLsxpqHhQSjvqBtER2o24zCD+EdKPQ2DKtf0KnWSa56F0AJAV5e0bsz3VMuDHnNGKC2NbAaBRg==",
+  "dgSpecHash": "II5ApfsLdsX2nQ6j2+n9MOEDpuTITXFKOEwLVPftgL357wHMR6Tpv7EH+7+x/AqsEmaaSacubAOK9d4eMFksYw==",
   "success": true,
   "projectFilePath": "D:\\Coding\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj",
   "expectedPackageFiles": [
@@ -84,6 +84,7 @@
     "C:\\Users\\User\\.nuget\\packages\\nuget.protocol\\5.11.0\\nuget.protocol.5.11.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\nuget.versioning\\5.11.0\\nuget.versioning.5.11.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.1\\pomelo.entityframeworkcore.mysql.6.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\restsharp\\107.3.0\\restsharp.107.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
