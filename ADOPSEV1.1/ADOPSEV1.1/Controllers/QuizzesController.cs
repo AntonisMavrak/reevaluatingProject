@@ -197,7 +197,7 @@ namespace ADOPSEV1._1.Controllers
             ViewBag.Anwsers = _db.anwsers.ToList();
             ViewBag.Quizzes = _db.quizzes.ToList();
             ViewBag.Questions = _db.questions.ToList();
-            ViewBag.QuizQuestions = _db.quizQuestions.ToList();
+            ViewBag.QuizQuestions = _db.quizQuestions.Where(x => x.quizId == idQuiz).ToList();
 
             return View(quizFromDb);
         }

@@ -3,6 +3,24 @@
     ViewData["Title"] = "QuizStarted";
     var count = 1;
     var firstLoaded = -1;
+    var lastLoaded = -1;
+    var nextQuestion = -1;
+    bool flag = false;
+
+
+    @foreach (QuizQuestions qQ in ViewBag.QuizQuestions)
+    {
+        if (qQ.questionId == ViewBag.idQuestion)
+        {
+            flag = true;
+        }
+        if (flag && qQ.quizId == Model.id)
+        {
+            nextQuestion = qQ.questionId;
+            break;
+
+        }
+    }
 }
 
 <h1 class="text-center">@Model.title</h1>
@@ -80,68 +98,70 @@
 
                                     @foreach (QuizQuestions val in ViewBag.QuizQuestions)
                                     {
-                                        if (val.quizId == Model.id)
-                                        {
-                                            @foreach (Question question in ViewBag.Questions)
-                                            {
 
-                                                if (question.id == val.questionId)
+                                        @foreach (Question question in ViewBag.Questions)
+                                        {
+
+                                            if (question.id == val.questionId)
+                                            {
+                                                if (ViewBag.idQuestion == question.id)
                                                 {
-                                                    if (ViewBag.idQuestion == question.id)
-                                                    {
-                                                        <div class="card w-100 p-0 " id="cards" style="background-color: lightblue
+                                                    <div class="card w-100 p-0 " id="cards" style="background-color: lightblue
 ">
 
-                                                            <div class="card-body">
+                                                        <div class="card-body">
+                                                            <div>
+
                                                                 <div>
-
-                                                                    <div>
-                                                                        <p class="text-truncate card-text mb-1">
-                                                                            <b>@count.</b> @question.text
-                                                                        </p>
-                                                                    </div>
-
-
+                                                                    <p class="text-truncate card-text mb-1">
+                                                                        <b>@count.</b> @question.text
+                                                                    </p>
                                                                 </div>
 
 
-
                                                             </div>
+
+
                                                         </div>
-                                                    }
-                                                    else
-                                                    {
-                                                        <div class="card btn-check w-100 p-0" id="cards" checked>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="card ripple w-100 p-0" id="cards" checked>
 
-                                                            <div class="card-body">
+                                                        <div class="card-body">
+                                                            <div>
+
                                                                 <div>
-
-                                                                    <div>
-                                                                        <p class="text-truncate card-text mb-1">
-                                                                            <b>@count.</b> @question.text
-                                                                        </p>
-                                                                    </div>
-
-
+                                                                    <p class=" text-truncate card-text mb-1">
+                                                                        <b>@count.</b> @question.text
+                                                                    </p>
                                                                 </div>
 
 
-
                                                             </div>
+                                                            <a asp-action="QuizStarted" asp-route-idQuiz="@Model.id" asp-route-idQuestion="@question.id" class="stretched-link"></a>
+
+
                                                         </div>
-                                                    }
-
-                                                    if (count == 1)
-                                                    {
-                                                        firstLoaded = @question.id;
-                                                    }
-                                                    count++;
-
+                                                    </div>
                                                 }
 
+                                                if (count == 1)
+                                                {
+                                                    firstLoaded = @question.id;
+                                                }
 
+                                                if (count == ViewBag.QuizQuestions.Count)
+                                                {
+                                                    lastLoaded = @question.id;
+                                                }
+                                                count++;
                                             }
+
+
                                         }
+
 
                                     }
 
@@ -160,11 +180,22 @@
                                     </div>
                                 }
 
-                                <div class="col text-center">
-                                    <a asp-controller="" asp-action="" asp-route-id="" class="btn btn-lg float-start btn-block btn-success">
-                                        &nbsp; &nbsp; Next &nbsp; &nbsp;
-                                    </a>
-                                </div>
+                                @if (ViewBag.idQuestion != lastLoaded)
+                                {
+                                    <div class="col text-center">
+                                        <a asp-action="QuizStarted" asp-route-idQuiz="@Model.id" asp-route-idQuestion="@nextQuestion" class="btn btn-lg float-start btn-block btn-success">
+                                            &nbsp; &nbsp; Next &nbsp; &nbsp;
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col text-center">
+                                        <a class="btn btn-lg float-start btn-block btn-danger">
+                                            Complete
+                                        </a>
+                                    </div>
+                                }
                             </div>
                         </div>
 

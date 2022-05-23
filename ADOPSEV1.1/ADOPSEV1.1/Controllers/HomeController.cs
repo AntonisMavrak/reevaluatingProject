@@ -24,6 +24,7 @@ namespace ADOPSEV1._1.Controllers
             ViewBag.Quizzes = _db.quizzes.ToList();
             ViewBag.Subjects = _db.subjects.ToList();
             ViewBag.Users = _db.users.ToList();
+            ViewBag.QuizQuestions = _db.quizQuestions.ToList();
             return View();
         }
 

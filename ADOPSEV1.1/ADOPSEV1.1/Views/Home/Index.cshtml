@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
+    var firstQuestion = 0;
 }
 
 <div class="row">
@@ -72,8 +73,16 @@
                                     
 
                                 </div>
+                                @foreach(QuizQuestions qQ in ViewBag.QuizQuestions)
+                                {
+                                    if(qQ.quizId == @quiz.id)
+                                    {
+                                        firstQuestion = qQ.questionId;
+                                        break;
+                                    }
+                                }
                                 <div class="col-2">
-                                    <a asp-controller="Quizzes" asp-action="QuizStarted" asp-route-idQuiz="@quiz.id" asp-route-idQuestion="1" class="btn btn-success btn-lg float-end">Start</a>
+                                    <a asp-controller="Quizzes" asp-action="QuizStarted" asp-route-idQuiz="@quiz.id" asp-route-idQuestion="@firstQuestion" class="btn btn-success btn-lg float-end">Start</a>
                                     </div>
                             </div>
                         </div>
