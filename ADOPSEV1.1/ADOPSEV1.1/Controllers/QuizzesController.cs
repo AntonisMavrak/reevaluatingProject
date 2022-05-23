@@ -192,7 +192,13 @@ namespace ADOPSEV1._1.Controllers
                 return NotFound();
             }
             var quizFromDb = _db.quizzes.Find(idQuiz);
+
+            ViewBag.idQuestion = idQuestion;
+            ViewBag.Anwsers = _db.anwsers.ToList();
             ViewBag.Quizzes = _db.quizzes.ToList();
+            ViewBag.Questions = _db.questions.ToList();
+            ViewBag.QuizQuestions = _db.quizQuestions.ToList();
+
             return View(quizFromDb);
         }
 

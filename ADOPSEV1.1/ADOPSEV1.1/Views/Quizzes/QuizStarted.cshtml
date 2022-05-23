@@ -1,10 +1,179 @@
 ﻿@model ADOPSEV1._1.Models.Quiz
 @{
     ViewData["Title"] = "QuizStarted";
+    var count = 1;
+    var firstLoaded = -1;
 }
 
-<h1>@Model.title</h1>
+<h1 class="text-center">@Model.title</h1>
 
 
 @*<partial name="" />*@
 
+
+
+<div class="row">
+    <div class="col">
+
+        <div class="container">
+            <div class="row">
+
+
+
+                <div class="col-12 col-md-9">
+                    <br /><br /><br /><br /><br />
+                    @foreach (Question question in ViewBag.Questions)
+                    {
+                        if (question.id == ViewBag.idQuestion)
+                        {
+                            <h3>
+                                @question.text
+                            </h3>
+                            <br />
+
+                            <br />
+
+                            <br />
+
+
+                            @foreach (Anwser anwser in ViewBag.Anwsers)
+                            {
+                                if (question.id == anwser.questionId)
+                                {
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="@anwser.id">
+                                            <label class="form-check-label" for="@anwser.id">
+                                                <b>@anwser.text</b>
+                                            </label>
+                                        </div>
+
+
+                                        <br />
+                                    </div>
+                                }
+                            }
+
+
+
+                        }
+                    }
+
+
+
+                </div>
+
+
+                <div class="col-6 col-md-3">
+                    <br /><br /><br />
+                    <div id="Anwsers">
+                        <div class="row">
+
+                            <div class="col">
+                                <h4 class="text-center">Questions:</h4>
+                            </div>
+
+
+
+                            <ul class="list-group overflow-auto border" style="max-height: 500px;">
+                                <li class="list-group-item">
+
+                                    @foreach (QuizQuestions val in ViewBag.QuizQuestions)
+                                    {
+                                        if (val.quizId == Model.id)
+                                        {
+                                            @foreach (Question question in ViewBag.Questions)
+                                            {
+
+                                                if (question.id == val.questionId)
+                                                {
+                                                    if (ViewBag.idQuestion == question.id)
+                                                    {
+                                                        <div class="card w-100 p-0 " id="cards" style="background-color: lightblue
+">
+
+                                                            <div class="card-body">
+                                                                <div>
+
+                                                                    <div>
+                                                                        <p class="text-truncate card-text mb-1">
+                                                                            <b>@count.</b> @question.text
+                                                                        </p>
+                                                                    </div>
+
+
+                                                                </div>
+
+
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="card btn-check w-100 p-0" id="cards" checked>
+
+                                                            <div class="card-body">
+                                                                <div>
+
+                                                                    <div>
+                                                                        <p class="text-truncate card-text mb-1">
+                                                                            <b>@count.</b> @question.text
+                                                                        </p>
+                                                                    </div>
+
+
+                                                                </div>
+
+
+
+                                                            </div>
+                                                        </div>
+                                                    }
+
+                                                    if (count == 1)
+                                                    {
+                                                        firstLoaded = @question.id;
+                                                    }
+                                                    count++;
+
+                                                }
+
+
+                                            }
+                                        }
+
+                                    }
+
+
+                                </li>
+
+                            </ul>
+                            <p></p>
+                            <div class="row">
+                                @if (ViewBag.idQuestion != firstLoaded)
+                                {
+                                    <div class="col text-center">
+                                        <a asp-controller="" asp-action="" asp-route-id="" class="btn btn-lg float-end btn-block btn-secondary">
+                                            Previous
+                                        </a>
+                                    </div>
+                                }
+
+                                <div class="col text-center">
+                                    <a asp-controller="" asp-action="" asp-route-id="" class="btn btn-lg float-start btn-block btn-success">
+                                        &nbsp; &nbsp; Next &nbsp; &nbsp;
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
