@@ -18,13 +18,14 @@
 
 <body id="register_body" style="background: url(&quot;assets/img/background.jpg&quot;);">
     <section class="register-photo" style="background: rgba(241,247,252,0);margin: auto;">
-        <div class="alert alert-danger text-center shadow-lg alert-dismissible swing animated" role="alert" id="alertme" style="width: 539px;height: 38px;margin: 0px;margin-top: 2%;margin-right: 0;margin-left: 36%;padding: 0px;"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span><strong>Alert</strong> text.</span></div>
-        <div class="form-container" style="transform: scale(0.94);filter: grayscale(0%);margin: auto;">
-        <!--Form start-->
+        @*<div class="alert alert-danger text-center shadow-lg alert-dismissible swing animated" role="alert" id="alertme" style="width: 539px;height: 38px;margin: 0px;margin-top: 2%;margin-right: 0;margin-left: 36%;padding: 0px;"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span><strong>Alert</strong> text.</span></div>*@
+        <div class="form-container row" style="transform: scale(0.94);filter: grayscale(0%);margin: auto;">
+            <!--Form start-->
 
-        
-            
-            <form class="text-start" method="post" enctype="multipart/form-data" asp-controller="User" asp-action="Register" style="background: rgba(255,255,255,0.61);border-radius: 40px;box-shadow: 0px 11px 16px;"><img class="d-xxl-flex justify-content-xxl-center align-items-xxl-center" style="text-align: center;width: 229px;margin: 0px;margin-right: 0px;margin-left: 261px;margin-bottom: -26px;margin-top: -34px;" src="\img\e-quiz-logo.png" >
+
+
+            <form class="text-start" method="post" enctype="multipart/form-data" asp-controller="User" asp-action="Register" style="background: rgba(255,255,255,0.61);border-radius: 40px;box-shadow: 0px 11px 16px;">
+                <img class="d-xxl-flex justify-content-xxl-center align-items-xxl-center" style="text-align: center;width: 229px;margin: 0px;margin-right: 0px;margin-left: 261px;margin-bottom: -26px;margin-top: -34px;" src="\img\e-quiz-logo.png">
                 <div asp-validation-summary="All"></div>
                 <h2 class="display-1 fs-1 text-center" style="color: #2e6a9c;text-shadow: 0px 3px 3px #8b93a4;margin-top: -31px;margin-bottom: 31px;"><strong>REGISTER</strong></h2>
                 <div class="mb-3" style="width: 300px;"></div>
@@ -33,13 +34,14 @@
                         <div class="col-auto col-md-6" style="width: 385px;">
                             <div class="input-group"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;"><i class="fa fa-user" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -2px;"></i></span><input Validation.RequireField(field, [error message]) class="form-control" type="text" name="first_name" id="first_name" style="background: rgb(255,255,255);border-radius: 4px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;width: 329.406px;" placeholder="ΟΝΟΜΑ" name="name_input"></div>
                             <div class="input-group" style="margin-top: 28px;"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;"><i class="fa fa-user" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -2px;"></i></span><input class="form-control" type="text" name="last_name" id="last_name" style="background: rgb(255,255,255);border-radius: 4px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;width: 329.406px;" placeholder="ΕΠΙΘΕΤΟ" name="surname_input"></div>
-                            <select asp-for="branchId" class="form-select" id="parartima" style="margin-top: 27px;height: 40px;">
-                                <optgroup label="Επιλογή Παραρτήματος">
-                                    @foreach (var branches in ViewBag.Branch)
-                                    {
-                                    <option value="@branches.id">@branches.name</option>          
-                                    }
-                                </optgroup>
+                            
+                            <select class="form-select" id="parartima" style="margin-top: 27px;height: 40px;">
+                                <option disabled selected> -- Επιλογή παραρτήματος -- </option>
+                                @foreach (var branches in ViewBag.Branch)
+                                {
+                                    <option value="@branches.id">@branches.name</option>
+                                }
+
                             </select>
                             <div class="input-group" style="margin-top: 42px;"></div>
                         </div>
@@ -50,11 +52,15 @@
                             <div class="input-group" style="margin-top: 40px;"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;margin-top: -13px;"><i class="fa fa-lock" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -1px;"></i></span><input class="form-control" type="password" id="repasswd" style="margin: 9px 0px 0px -1px;margin-top: -13px;background: rgb(255,255,255);" placeholder="RETYPE PASSWORD"></div>
                         </div>
                     </div>
-                </div><button class="btn btn-primary"  type="submit" style="width: 780px;">Sign Up</button>
-                <div class="mb-3"></div>
-                <div class="mb-3"></div>
-                <div class="mb-3"></div>
-                <div class="mb-3"></div><a class="already" href="login.html">You already have an account? Login here.</a>
+                    <br />
+                </div>
+                <div class="col text-center">
+                    <button class="btn btn-primary text-center" type="submit" style="width: 500px;">Sign Up</button>
+
+                    <br />
+
+                    <div class="mb-3"></div><a class="already" href="login.html">You already have an account? Login here.</a>
+                </div>
             </form>
         </div>
     </section>
@@ -62,7 +68,7 @@
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/register.js"></script>
     <style>
-        .validation-summary-errors{
+        .validation-summary-errors {
             border: 1px solid red;
             background-color: #FF5C5C;
             padding: 10px;

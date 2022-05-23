@@ -3,7 +3,6 @@ using ADOPSEV1._1.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
 using System.Security.Claims;
 
 namespace ADOPSEV1._1.Controllers
@@ -90,8 +89,8 @@ namespace ADOPSEV1._1.Controllers
 
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
                         ViewBag.userName = ClaimTypes.Name;
-                        
-                         return Redirect("/User/login");
+
+                        return Redirect("/User/login");
 
 
                     }
@@ -107,13 +106,13 @@ namespace ADOPSEV1._1.Controllers
                     return View();
                 }
             }
-            
+
             ViewBag.message = message;
             return View();
 
         }
 
-     
+
 
         bool IsValidEmail(string email)
         {

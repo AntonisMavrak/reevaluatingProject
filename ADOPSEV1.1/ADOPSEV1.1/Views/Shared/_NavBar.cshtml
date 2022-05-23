@@ -9,7 +9,7 @@
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <ul class="navbar-nav flex-grow-1">
-                
+
 
 
 
@@ -22,40 +22,37 @@
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Quizzes" asp-action="Index">Quiz</a>
                 </li>
-                
-                @if(User.HasClaim(ClaimTypes.Role, "2"))
-                {
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Anwsers" asp-action="Index">Anwser</a>
-                    </li>
-                }
-                else if (User.HasClaim(ClaimTypes.Role, "4"))
-                {
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Secretary" asp-action="Index">Secretary</a>
-                    </li>
-                }
-                else if(User.HasClaim(ClaimTypes.Role, "6"))
-                {
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
-                    </li>
-                }
 
+                
+
+
+
+
+
+            </ul>
+            <ul class="navbar-nav float-end">
                 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
                 @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
-                { 
-                    <li class="nav-item dropdown"> </li>
-                    <li class="nav-item dropdown me-auto" >
-                        <a asp-controller="User" asp-action="login" class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Hello, @User.Identity.Name  
-                                            
-                        </a>
-                        <div class="dropdown-menu text-align-center" aria-labelledby="navbarDropdown">
-                            <a class="nav-link dropdown-item" >Dashboard</a>
-                            <a class="nav-link dropdown-item" >Log Out</a>
-                        </div>
-                    </li>
+                {
+
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hello, @User.Identity.Name
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Log Out</a></li>
+                            @if (User.HasClaim(ClaimTypes.Role, "4"))
+                            {
+                                <a class="dropdown-item" asp-controller="Secretary" asp-action="Index">Secretary</a>
+                            }else if (User.HasClaim(ClaimTypes.Role, "6"))
+                            {
+                                 <a class="dropdown-item" asp-controller="Secretary" asp-action="Index">Secretary</a>
+                                 <a class="dropdown-item" asp-controller="Admin" asp-action="Index">Admin</a>
+                            }
+                        </ul>
+                    </div>
+
                 }
                 else
                 {
@@ -66,7 +63,6 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
                     </li>
                 }
-                
             </ul>
         </div>
     </div>
