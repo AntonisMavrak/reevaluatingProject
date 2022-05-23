@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace ADOPSEV1._1.Models
 {
     public class User

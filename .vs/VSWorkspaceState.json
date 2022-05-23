@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ADOPSEV1.1",
+    "\\ADOPSEV1.1\\ADOPSEV1.1",
+    "\\ADOPSEV1.1\\ADOPSEV1.1\\Controllers"
   ],
+  "SelectedNode": "\\ADOPSEV1.1\\ADOPSEV1.1\\Controllers\\QuestionsController.cs",
   "PreviewInSolutionExplorer": false
 }

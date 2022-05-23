@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = "Edit";
+
+    bool isIn;
+    int count = 0;
 }
 
 <h1>Edit</h1>
@@ -70,38 +73,69 @@
                             <li class="list-group-item">
                                 @foreach (Question question in ViewBag.Question)
                                 {
-                                    <div class="card w-100 p-0">
 
-                                        <div class="card-body">
-                                            <h5 class="card-title">@question.text</h5>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <dt>Created By:</dt>
-                                                    <dd class="card-text">sadgsgad</dd>
+                                    isIn = false;
+                                    foreach (QuizQuestions qQ in ViewBag.QuizQuestions)
+                                    {
+                                        if (question.id == qQ.questionId & qQ.quizId == Model.id)
+                                        {
+                                            isIn = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (isIn)
+                                    {
+                                        <div class="card w-100 p-0">
+
+                                            <div class="card-body">
+                                                <h5 class="card-title">@question.text</h5>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <dt>Created By:</dt>
+                                                        @foreach (User user in ViewBag.Users)
+                                                        {
+                                                            if (user.id == question.madeBy)
+                                                            {
+                                                                <dd class="card-text">@user.last_name @user.first_name</dd>
+                                                            }
+                                                        }
+                                                    </div>
+                                                    <div class="col">
+                                                        <dt>Date Created:</dt>
+                                                        <dd class="card-text">@question.CreatedDateTime</dd>
+                                                    </div>
+                                                    <div class="row">
+                                                        <dt>Subject:</dt>
+                                                        @foreach (Subject subject in ViewBag.Subject)
+                                                        {
+                                                            if (subject.id == question.subjectId)
+                                                            {
+                                                                <dd class="card-text">@subject.name</dd>
+                                                            }
+                                                        }
+                                                    </div>
                                                 </div>
-                                                <div class="col">
-                                                    <dt>Date Created:</dt>
-                                                    <dd class="card-text">@question.CreatedDateTime</dd>
-                                                </div>
+                                                <a asp-action="RemoveFromQuiz" asp-route-idQuestion="@question.id" asp-route-idQuiz="@Model.id" class="btn btn-danger float-end">Remove</a>
+
                                             </div>
-                                            <a href="#" class="btn btn-danger float-end">Remove</a>
                                         </div>
-                                    </div>
+                                    }
                                 }
-
                             </li>
 
                         </ul>
                     </div>
+                    <br />
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <a asp-controller="Questions" asp-action="LoadFromDb" class="btn btn-primary mx-2">
+                                <a asp-controller="Questions" asp-action="LoadFromDb" asp-route-id="@Model.id" class="btn btn-primary btn-lg mx-2">
                                     Load Question
                                 </a>
                             </div>
                             <div class="col">
-                                <a asp-controller="Questions" asp-action="Create" class="btn btn-secondary mx-2">
+                                <a asp-controller="Questions" asp-action="Create" class="btn btn-secondary  btn-lg mx-2">
                                     Create Question
                                 </a>
                             </div>

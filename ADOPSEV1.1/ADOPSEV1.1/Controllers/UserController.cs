@@ -90,7 +90,7 @@ namespace ADOPSEV1._1.Controllers
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
                         ViewBag.userName = ClaimTypes.Name;
 
-                        return Redirect("/User/login");
+                        return RedirectToAction("Index", "Home");
 
 
                     }

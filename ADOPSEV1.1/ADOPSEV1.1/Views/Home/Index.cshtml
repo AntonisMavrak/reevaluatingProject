@@ -1,8 +1,96 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
+    var firstQuestion = 0;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<div class="row">
+    <h1 class="display-4">Dashboard</h1>
+
+    <div class="col">
+
+        <h3 class="text-center">Available Quizzes</h3>
+        <br />
+        <div class="overflow-auto" style="max-height: 560px;">
+            @foreach (Quiz quiz in ViewBag.Quizzes)
+            {
+                <div class="card">
+
+                    @foreach (Subject subject in ViewBag.Subjects)
+                    {
+                        if (@quiz.subjectId == subject.id)
+                        {
+                            <div class="card-header">
+                                @subject.name
+                            </div>
+                        }
+                    }
+
+
+                    <div class="card-body">
+
+                        <h4 class="card-title">@quiz.title</h4>
+                        <br />
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="row">
+                                        <dt>Made By:</dt>
+                                        @foreach (User user in ViewBag.Users)
+                                        {
+                                            if (@quiz.madeBy == user.id)
+                                            {
+                                                <dd class="card-text">
+                                                    @user.first_name @user.last_name
+                                                </dd>
+                                            }
+                                        }
+                                    </div>
+                                    <p></p>
+                                    <div class="row">
+                                        <dt>Number of Questions:</dt>
+                                        <dd class="card-text">
+                                            @quiz.numberOfQuestions
+                                        </dd>
+                                    </div>
+
+                                </div>
+                                <div class="col-4">
+                                    <div class="row">
+                                        <dt>Time to Complete:</dt>
+                                        <dd class="card-text">
+                                            @quiz.minutes:00 min
+                                        </dd>
+                                    </div>
+                                    <p></p>
+                                    <div class="row">
+                                        <dt>Date Created:</dt>
+                                        <dd class="card-text">
+                                            @quiz.CreatedDateTime
+                                        </dd>
+                                    </div>
+
+
+                                    
+
+                                </div>
+                                @foreach(QuizQuestions qQ in ViewBag.QuizQuestions)
+                                {
+                                    if(qQ.quizId == @quiz.id)
+                                    {
+                                        firstQuestion = qQ.questionId;
+                                        break;
+                                    }
+                                }
+                                <div class="col-2">
+                                    <a asp-controller="Quizzes" asp-action="QuizStarted" asp-route-idQuiz="@quiz.id" asp-route-idQuestion="@firstQuestion" class="btn btn-success btn-lg float-end">Start</a>
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br />
+            }
+
+        </div>
+    </div>

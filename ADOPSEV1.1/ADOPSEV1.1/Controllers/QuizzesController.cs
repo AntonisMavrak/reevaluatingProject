@@ -79,6 +79,8 @@ namespace ADOPSEV1._1.Controllers
 
             ViewBag.Question = _db.questions.ToList();
             ViewBag.Subject = _db.subjects.ToList();
+            ViewBag.Users = _db.users.ToList();
+            ViewBag.QuizQuestions = _db.quizQuestions.ToList();
 
             return View(quizFromDb);
         }
@@ -100,9 +102,6 @@ namespace ADOPSEV1._1.Controllers
 
 
         }
-
-
-
 
 
 
@@ -165,5 +164,46 @@ namespace ADOPSEV1._1.Controllers
 
             return View(quiz);
         }
+
+
+        //POST
+        public IActionResult RemoveFromQuiz(int idQuiz, int idQuestion)
+        {
+
+
+            _db.quizQuestions.RemoveRange(_db.quizQuestions.Where(x => x.questionId == idQuestion && x.quizId == idQuiz));
+            _db.SaveChanges();
+            TempData["success"] = "Question removed";
+            var obj = _db.quizzes.Find(idQuiz);
+            if (obj == null)
+            {
+                return RedirectToAction("Create");
+            }
+            return RedirectToAction("Edit", new { id = idQuiz });
+        }
+
+
+        //POST
+        public IActionResult QuizStarted(int idQuiz, int idQuestion)
+        {
+
+            if (idQuiz == null || idQuiz == 0)
+            {
+                return NotFound();
+            }
+            var quizFromDb = _db.quizzes.Find(idQuiz);
+
+            ViewBag.idQuestion = idQuestion;
+            ViewBag.Anwsers = _db.anwsers.ToList();
+            ViewBag.Quizzes = _db.quizzes.ToList();
+            ViewBag.Questions = _db.questions.ToList();
+            ViewBag.QuizQuestions = _db.quizQuestions.Where(x => x.quizId == idQuiz).ToList();
+
+            return View(quizFromDb);
+        }
+
+
+
+
     }
 }

@@ -116,6 +116,14 @@
     </li>
 </ul>
 <br />
-<a asp-action="Create" asp-controller="Quizzes" class="btn btn-secondary">Back to Quiz</a>
+@if (ViewBag.Exist == false)
+{
+    <a asp-action="Create" asp-controller="Quizzes" class="btn btn-secondary">Back to Quiz</a>
+}
+else
+{
+    <a asp-action="Edit" asp-controller="Quizzes" asp-route-id="@ViewBag.QuizId" class="btn btn-secondary">Back to Quiz</a>
+}
+
 
 
