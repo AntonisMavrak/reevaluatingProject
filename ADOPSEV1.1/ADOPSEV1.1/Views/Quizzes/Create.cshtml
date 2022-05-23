@@ -141,12 +141,12 @@
                                                         }
                                                     </div>
                                                 </div>
-                                                <a href="#" class="btn btn-danger float-end">Remove</a>
+                                                <a asp-action="RemoveFromQuiz" asp-route-idQuestion="@question.id" asp-route-idQuiz="@idQuiz" class="btn btn-danger float-end">Remove</a>
+
                                             </div>
                                         </div>
                                     }
                                 }
-
                             </li>
 
                         </ul>

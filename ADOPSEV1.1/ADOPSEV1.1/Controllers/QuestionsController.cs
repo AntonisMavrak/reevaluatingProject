@@ -244,6 +244,17 @@ namespace ADOPSEV1._1.Controllers
             {
                 return NotFound();
             }
+
+            var obj = _db.quizzes.Find(id);
+            if (obj == null)
+            {
+                ViewBag.Exist = false;
+            }
+            else
+            {
+                ViewBag.Exist = true;
+            }
+
             ViewBag.QuizQuestions = _db.quizQuestions.ToList();
             ViewBag.QuizId = id;
             ViewBag.Subjects = _db.subjects.ToList();
@@ -255,7 +266,6 @@ namespace ADOPSEV1._1.Controllers
         //POST
         public IActionResult AddToQuiz(int idQuiz, int idQuestion)
         {
-
 
             foreach (QuizQuestions item in _db.quizQuestions)
             {
@@ -274,9 +284,11 @@ namespace ADOPSEV1._1.Controllers
             TempData["success"] = "Question added to Quiz";
             _db.quizQuestions.Add(new QuizQuestions { questionId = idQuestion, quizId = idQuiz });
             _db.SaveChanges();
+
             return RedirectToAction("LoadFromDb", new { id = idQuiz });
 
         }
+
 
     }
 }
