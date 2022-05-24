@@ -35,7 +35,7 @@
                             <div class="input-group"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;"><i class="fa fa-user" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -2px;"></i></span><input Validation.RequireField(field, [error message]) class="form-control" type="text" name="first_name" id="first_name" style="background: rgb(255,255,255);border-radius: 4px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;width: 329.406px;" placeholder="ΟΝΟΜΑ" name="name_input"></div>
                             <div class="input-group" style="margin-top: 28px;"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;"><i class="fa fa-user" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -2px;"></i></span><input class="form-control" type="text" name="last_name" id="last_name" style="background: rgb(255,255,255);border-radius: 4px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;width: 329.406px;" placeholder="ΕΠΙΘΕΤΟ" name="surname_input"></div>
                             
-                            <select class="form-select" id="parartima" style="margin-top: 27px;height: 40px;">
+                            <select class="form-select" id="dropBranch" name="dropBranch" style="margin-top: 27px;height: 40px;">
                                 <option disabled selected> -- Επιλογή παραρτήματος -- </option>
                                 @foreach (var branches in ViewBag.Branch)
                                 {
@@ -43,6 +43,7 @@
                                 }
 
                             </select>
+                            <input type="hidden" id="dropBranchValue" />
                             <div class="input-group" style="margin-top: 42px;"></div>
                         </div>
                         <div class="col-md-6">
@@ -79,3 +80,14 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+         $(function () {
+             $("#dropBranch").change(function () {
+                 //add the parameter
+                 var newValue = $("#dropBranch").attr("value")
+                 //change the hyperlink href attribute.
+                 $("#dropBranchValue").attr("value", newValue);
+             });
+         });
+     </script>
