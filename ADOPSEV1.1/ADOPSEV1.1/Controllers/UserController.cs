@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
+
 namespace ADOPSEV1._1.Controllers
 {
     public class UserController : Controller
@@ -83,6 +84,7 @@ namespace ADOPSEV1._1.Controllers
                 if(!password.Equals(password_repeat))
                 {
                     ViewBag.Branch = _db.branches.ToList();
+                    ViewBag.msg = "passwords don't match";
                     IEnumerable<User> objUserList = _db.users;
                     return View(objUserList);
                 }
@@ -184,6 +186,8 @@ namespace ADOPSEV1._1.Controllers
                 return false;
             }
         }
+
+       
 
     }
 }
