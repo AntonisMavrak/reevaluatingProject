@@ -25,7 +25,47 @@ namespace ADOPSEV1._1.Controllers
 
         public IActionResult Profile(string username)
         {
-            return View();
+            if (username == null || username == "")
+            {
+                return NotFound();
+            }
+
+            ViewBag.Branches = _db.branches.ToList();
+
+            User user = new User();
+            ViewBag.Users = _db.users.Where(x => x.username == username);
+            foreach (User item in ViewBag.Users)
+            {
+                user = item;
+            }
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(User obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _db.users.Update(obj);
+                _db.SaveChanges();
+                TempData["success"] = "User updated succesfully";
+                return RedirectToAction("Profile");
+            }
+            else
+            {
+                TempData["error"] = "User update failed";
+            }
+            return RedirectToAction("Profile");
+
+
         }
 
         [HttpPost]
