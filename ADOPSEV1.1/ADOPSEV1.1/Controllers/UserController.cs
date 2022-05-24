@@ -83,7 +83,7 @@ namespace ADOPSEV1._1.Controllers
                 user.first_name = HttpContext.Request.Form["first_name"].ToString();
                 user.last_name = HttpContext.Request.Form["last_name"].ToString();
                 user.email = HttpContext.Request.Form["email"].ToString();
-                user.branchId = Int32.Parse(HttpContext.Request.Form["BranchId"]);
+                user.branchId = Int32.Parse(HttpContext.Request.Form["dropBranch"]);  //
                 string typedPass = HttpContext.Request.Form["password"].ToString();
                 user.password = HashFun.Hash(password);
                 user.username = HttpContext.Request.Form["username"].ToString();
