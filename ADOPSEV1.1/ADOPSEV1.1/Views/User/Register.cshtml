@@ -3,91 +3,44 @@
     ViewData["Title"] = "Index";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Register</title>
-    @*<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">*@
-</head>
-
-<body id="register_body" style="background: url(&quot;assets/img/background.jpg&quot;);">
-    <section class="register-photo" style="background: rgba(241,247,252,0);margin: auto;">
-        @*<div class="alert alert-danger text-center shadow-lg alert-dismissible swing animated" role="alert" id="alertme" style="width: 539px;height: 38px;margin: 0px;margin-top: 2%;margin-right: 0;margin-left: 36%;padding: 0px;"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span><strong>Alert</strong> text.</span></div>*@
-        <div class="form-container row" style="transform: scale(0.94);filter: grayscale(0%);margin: auto;">
-            <!--Form start-->
-
-
-
-            <form class="text-start" method="post" enctype="multipart/form-data" asp-controller="User" asp-action="Register" style="background: rgba(255,255,255,0.61);border-radius: 40px;box-shadow: 0px 11px 16px;">
-                <img class="d-xxl-flex justify-content-xxl-center align-items-xxl-center" style="text-align: center;width: 229px;margin: 0px;margin-right: 0px;margin-left: 261px;margin-bottom: -26px;margin-top: -34px;" src="\img\e-quiz-logo.png">
-                <div asp-validation-summary="All"></div>
-                <h2 class="display-1 fs-1 text-center" style="color: #2e6a9c;text-shadow: 0px 3px 3px #8b93a4;margin-top: -31px;margin-bottom: 31px;"><strong>REGISTER</strong></h2>
-                <div class="mb-3" style="width: 300px;"></div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-auto col-md-6" style="width: 385px;">
-                            <div class="input-group"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;"><i class="fa fa-user" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -2px;"></i></span><input Validation.RequireField(field, [error message]) class="form-control" type="text" name="first_name" id="first_name" style="background: rgb(255,255,255);border-radius: 4px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;width: 329.406px;" placeholder="ΟΝΟΜΑ" name="name_input"></div>
-                            <div class="input-group" style="margin-top: 28px;"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;"><i class="fa fa-user" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -2px;"></i></span><input class="form-control" type="text" name="last_name" id="last_name" style="background: rgb(255,255,255);border-radius: 4px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;width: 329.406px;" placeholder="ΕΠΙΘΕΤΟ" name="surname_input"></div>
-                            
-                            <select class="form-select" id="dropBranch" name="dropBranch" style="margin-top: 27px;height: 40px;">
-                                <option disabled selected> -- Επιλογή παραρτήματος -- </option>
-                                @foreach (var branches in ViewBag.Branch)
-                                {
-                                    <option value="@branches.id">@branches.name</option>
-                                }
-
-                            </select>
-                            <input type="hidden" id="dropBranchValue" />
-                            <div class="input-group" style="margin-top: 42px;"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group" style="margin-top: 13px;"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;margin-top: -13px;"><i class="fa fa-user" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -2px;"></i></span><input class="form-control" type="text" id="username" style="background: rgb(255,255,255);border-radius: 4px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;width: 329.406px;margin-top: -13px;" placeholder="USERNAME" name="username"></div>
-                            <div class="input-group" style="margin-top: 40px;"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;margin-top: -13px;"><i class="fa fa-envelope-o" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -3px;"></i></span><input name="email" class="form-control" type="text" id="email" style="background: rgb(255,255,255);border-radius: 4px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;width: 329.406px;margin-top: -13px;" placeholder="E-MAIL" inputmode="email" name="e-mail_input"></div>
-                            <div class="input-group" style="margin-top: 40px;"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;margin-top: -13px;"><i class="fa fa-lock" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -1px;"></i></span><input class="form-control" name="password" type="password" id="password" style="margin-top: -13px;background: rgb(255,255,255);" placeholder="PASSWORD"></div>
-                            <div class="input-group" style="margin-top: 40px;"><span class="input-group-text" style="height: 40px;width: 32.5938px;background: #2e6a9c;border-radius: 4px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;margin-top: -13px;"><i class="fa fa-lock" style="width: 11.8646px;border-color: #2e6a9c;color: #ffffff;margin-left: -1px;"></i></span><input class="form-control" type="password" id="repasswd" style="margin: 9px 0px 0px -1px;margin-top: -13px;background: rgb(255,255,255);" placeholder="RETYPE PASSWORD"></div>
+<div class="container">
+        <div class="card shadow-lg o-hidden border-0 my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-flex">
+                        <div class="flex-grow-1 bg-register-image" style="background: url(&quot;assets/img/dogs/EQUIZ-LOGO.png&quot;) center / cover;"></div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h4 class="text-dark mb-4">Create an Account!</h4>
+                            </div>
+                            <form class="user">
+                                <div class="row mb-3">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="First Name" name="first_name"></div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Last Name" name="last_name"></div>
+                                </div>
+                                <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address" name="email"></div><select class="form-select" style="border-radius: 160px;background: rgb(255,255,255);color: rgb(0,0,0);height: 54.1875px;border-color: rgb(133,135,150);">
+                                    <optgroup label="Επιλογή Παραρτήματος">
+                                        <option value="12" selected="">ΚΕΝΤΡΟ</option>
+                                        <option value="13">ΔΥΤΙΚΑ</option>
+                                        <option value="14">ΑΝΑΤΟΛΙΚΑ</option>
+                                        <option value="1">ΚΑΘΗΓΗΤΗΣ</option>
+                                    </optgroup>
+                                </select>
+                                <div class="mb-3"></div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="examplePasswordInput" placeholder="Password" name="password"></div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="exampleRepeatPasswordInput" placeholder="Repeat Password" name="password_repeat" style="height: 54.1875px;border-color: rgb(133, 135, 150);border-top-color: rgb(133,;border-right-color: 135,;border-bottom-color: 150);border-left-color: 135,;"></div>
+                                </div><button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: rgb(78, 115, 223);">Register Account</button>
+                                <hr><a class="btn btn-primary d-block btn-google btn-user w-100 mb-2" role="button"><i class="fab fa-google"></i>&nbsp; Register with Google</a><a class="btn btn-primary d-block btn-facebook btn-user w-100" role="button"><i class="fab fa-facebook-f"></i>&nbsp; Register with Facebook</a>
+                                <hr>
+                            </form>
+                            <div class="text-center"><a class="small" href="forgot-password.html">Forgot Password?</a></div>
+                            <div class="text-center"><a class="small" href="login.html">Already have an account? Login!</a></div>
                         </div>
                     </div>
-                    <br />
                 </div>
-                <div class="col text-center">
-                    <button class="btn btn-primary text-center" type="submit" style="width: 500px;">Sign Up</button>
-
-                    <br />
-
-                    <div class="mb-3"></div><a class="already" href="login.html">You already have an account? Login here.</a>
-                </div>
-            </form>
+            </div>
         </div>
-    </section>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/register.js"></script>
-    <style>
-        .validation-summary-errors {
-            border: 1px solid red;
-            background-color: #FF5C5C;
-            padding: 10px;
-            width: fit-content;
-            color: white;
-        }
-    </style>
-</body>
-
-</html>
-
-<script type="text/javascript">
-         $(function () {
-             $("#dropBranch").change(function () {
-                 //add the parameter
-                 var newValue = $("#dropBranch").attr("value")
-                 //change the hyperlink href attribute.
-                 $("#dropBranchValue").attr("value", newValue);
-             });
-         });
-     </script>
+    </div>
