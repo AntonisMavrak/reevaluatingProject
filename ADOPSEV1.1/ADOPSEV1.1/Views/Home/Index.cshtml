@@ -4,93 +4,106 @@
 }
 
 <div class="row">
-    <h1 class="display-4">Dashboard</h1>
+    @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+    @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+    {
+        <h1 class="display-4">Dashboard</h1>
 
-    <div class="col">
+        <div class="col">
 
-        <h3 class="text-center">Available Quizzes</h3>
-        <br />
-        <div class="overflow-auto" style="max-height: 560px;">
-            @foreach (Quiz quiz in ViewBag.Quizzes)
-            {
-                <div class="card">
+            <h3 class="text-center">Available Quizzes</h3>
+            <br />
+            <div class="overflow-auto" style="max-height: 600px;">
+                @foreach (Quiz quiz in ViewBag.Quizzes)
+                {
+                    <div class="card">
 
-                    @foreach (Subject subject in ViewBag.Subjects)
-                    {
-                        if (@quiz.subjectId == subject.id)
+                        @foreach (Subject subject in ViewBag.Subjects)
                         {
-                            <div class="card-header">
-                                @subject.name
-                            </div>
+                            if (@quiz.subjectId == subject.id)
+                            {
+                                <div class="card-header">
+                                    @subject.name
+                                </div>
+                            }
                         }
-                    }
 
 
-                    <div class="card-body">
+                        <div class="card-body">
 
-                        <h4 class="card-title">@quiz.title</h4>
-                        <br />
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="row">
-                                        <dt>Made By:</dt>
-                                        @foreach (User user in ViewBag.Users)
-                                        {
-                                            if (@quiz.madeBy == user.id)
+                            <h4 class="card-title">@quiz.title</h4>
+                            <br />
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="row">
+                                            <dt>Made By:</dt>
+                                            @foreach (User user in ViewBag.Users)
                                             {
-                                                <dd class="card-text">
-                                                    @user.first_name @user.last_name
-                                                </dd>
+                                                if (@quiz.madeBy == user.id)
+                                                {
+                                                    <dd class="card-text">
+                                                        @user.first_name @user.last_name
+                                                    </dd>
+                                                }
                                             }
-                                        }
-                                    </div>
-                                    <p></p>
-                                    <div class="row">
-                                        <dt>Number of Questions:</dt>
-                                        <dd class="card-text">
-                                            @quiz.numberOfQuestions
-                                        </dd>
-                                    </div>
+                                        </div>
+                                        <p></p>
+                                        <div class="row">
+                                            <dt>Number of Questions:</dt>
+                                            <dd class="card-text">
+                                                @quiz.numberOfQuestions
+                                            </dd>
+                                        </div>
 
-                                </div>
-                                <div class="col-4">
-                                    <div class="row">
-                                        <dt>Time to Complete:</dt>
-                                        <dd class="card-text">
-                                            @quiz.minutes:00 min
-                                        </dd>
                                     </div>
-                                    <p></p>
-                                    <div class="row">
-                                        <dt>Date Created:</dt>
-                                        <dd class="card-text">
-                                            @quiz.CreatedDateTime
-                                        </dd>
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <dt>Time to Complete:</dt>
+                                            <dd class="card-text">
+                                                @quiz.minutes:00 min
+                                            </dd>
+                                        </div>
+                                        <p></p>
+                                        <div class="row">
+                                            <dt>Date Created:</dt>
+                                            <dd class="card-text">
+                                                @quiz.CreatedDateTime
+                                            </dd>
+                                        </div>
+
+
+
+
                                     </div>
-
-
-                                    
-
-                                </div>
-                                @foreach(QuizQuestions qQ in ViewBag.QuizQuestions)
-                                {
-                                    if(qQ.quizId == @quiz.id)
+                                    @foreach (QuizQuestions qQ in ViewBag.QuizQuestions)
                                     {
-                                        firstQuestion = qQ.questionId;
-                                        break;
+                                        if (qQ.quizId == @quiz.id)
+                                        {
+                                            firstQuestion = qQ.questionId;
+                                            break;
+                                        }
                                     }
-                                }
-                                <div class="col-2">
-                                    <a asp-controller="Quizzes" asp-action="QuizStarted" asp-route-idQuiz="@quiz.id" asp-route-idQuestion="@firstQuestion" class="btn btn-success btn-lg float-end">Start</a>
+                                    <div class="col-2">
+                                        <a asp-controller="Quizzes" asp-action="QuizStarted" asp-route-idQuiz="@quiz.id" asp-route-idQuestion="@firstQuestion" class="btn btn-success btn-lg float-end">Start</a>
                                     </div>
+                                </div>
                             </div>
+
                         </div>
-
                     </div>
-                </div>
-                <br />
-            }
+                    <br />
+                }
 
+            </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <p></p>
+         <br />
+         <br />
+         <h1 class="display-4 text-center">Welcome to e-Quiz</h1>
+         <h3 class="text-center">To navigate through our application please login or register.</h3>
+         @*<img src="~/img/e-quiz-logo.png" alt="e-Quiz Logo">*@
+    }

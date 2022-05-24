@@ -9,49 +9,52 @@
             </div>
         </a>
         <hr class="sidebar-divider my-0">
-        <ul class="navbar-nav text-light" id="accordionSidebar">
-            <li class="nav-item">
-                <a class="nav-link active" asp-controller="Home" asp-action="Index">
-                    <i class="fas fa-home"></i><span>Home</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Subjects" asp-action="Enrollment">
-                    <i class="fas fa-book-open"></i><span>Subjects</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Questions" asp-action="Index">
-                    <i class="bi bi-question-lg"></i><span>Questions</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Quizzes" asp-action="Index">
-                    <i class="far fa-lightbulb"></i><span>Quiz</span>
-                </a>
+        @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+        @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+        {
+            <ul class="navbar-nav text-light" id="accordionSidebar">
 
-            </li>
-            @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
-            @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
-            {
+                <li class="nav-item">
+                    <a class="nav-link active" asp-controller="Home" asp-action="Index">
+                        <i class="fas fa-home"></i><span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Subjects" asp-action="Enrollment">
+                        <i class="fas fa-book-open"></i><span>Subjects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Questions" asp-action="Index">
+                        <i class="bi bi-question-lg"></i><span>Questions</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Quizzes" asp-action="Index">
+                        <i class="far fa-lightbulb"></i><span>Quiz</span>
+                    </a>
+
+                </li>
+                {
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="User" asp-action="Profile" asp-route-username="@User.Identity.Name">
-                    <i class="fas fa-user"></i>
-                    <span>Profile</span>
-                </a>
-            </li>
-            }
-            <li class="nav-item">
-                <a class="nav-link" href="register.html">
-                    <i class="fas fa-sign-out-alt" style="color: var(--bs-red);">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                }
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">
+                        <i class="fas fa-sign-out-alt" style="color: var(--bs-red);">
 
-                    </i><span style="color: var(--bs-red);background: rgba(231,74,59,0);">Log Out</span>
-                </a>
-            </li>
-        </ul>
-        <div class="text-center d-none d-md-inline">
-            <button class="btn rounded-circle border-0" id="sidebarToggle" type="button">
-            </button>
-        </div>
+                        </i><span style="color: var(--bs-red);background: rgba(231,74,59,0);">Log Out</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="text-center d-none d-md-inline">
+                <button class="btn rounded-circle border-0" id="sidebarToggle" type="button">
+                </button>
+            </div>
+        }
     </div>
 </nav>

@@ -22,6 +22,11 @@ namespace ADOPSEV1._1.Controllers
             return View(objUserList);
         }
 
+        public IActionResult LoginK()
+        {
+            return View();
+        }
+
 
         public IActionResult Profile(string username)
         {
