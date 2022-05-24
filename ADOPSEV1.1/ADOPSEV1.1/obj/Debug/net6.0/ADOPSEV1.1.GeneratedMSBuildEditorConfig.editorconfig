@@ -8,209 +8,209 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ADOPSEV1._1
 build_property.RootNamespace = ADOPSEV1._1
-build_property.ProjectDir = D:\Coding\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\
+build_property.ProjectDir = C:\Users\chris\Documents\GitHub\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Coding\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1
+build_property.MSBuildProjectDirectory = C:\Users\chris\Documents\GitHub\reevaluatingProject\ADOPSEV1.1\ADOPSEV1.1
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Create.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Delete.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Details.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Edit.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Index.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Create.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Delete.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/DeleteQuestion.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/DeleteQuestion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xEZWxldGVRdWVzdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Details.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Edit.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/EditQuestion.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/EditQuestion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xFZGl0UXVlc3Rpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Index.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Anwsers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW53c2Vyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Branches/Create.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Branches/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Branches/Delete.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Branches/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Branches/Details.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Branches/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Branches/Edit.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Branches/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Branches/Index.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Branches/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmNoZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Home/Index.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/Create.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/Delete.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/Details.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/Edit.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/Index.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/LoadFromDb.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Questions/LoadFromDb.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25zXExvYWRGcm9tRGIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Create.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Delete.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Details.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Edit.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Index.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/QuizStarted.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Quizzes/QuizStarted.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xRdWl6U3RhcnRlZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Secretary/Edit.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Secretary/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjcmV0YXJ5XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Secretary/Index.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Secretary/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjcmV0YXJ5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/AccessDenied.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFjY2Vzc0RlbmllZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/Error.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_NavBar.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_NavBar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZCYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_NavigationBar.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_NavigationBar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZpZ2F0aW9uQmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_Notification.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_Notification.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_UserIcon.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_UserIcon.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VySWNvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Create.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Delete.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Details.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Edit.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Enrollment.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Enrollment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcRW5yb2xsbWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Index.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Subjects/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/User/login.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/User/login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxsb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/User/Register.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/_ViewImports.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/_ViewStart.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Coding/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_Layout.cshtml]
+[C:/Users/chris/Documents/GitHub/reevaluatingProject/ADOPSEV1.1/ADOPSEV1.1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-xg9g1m8luq
