@@ -74,11 +74,18 @@ namespace ADOPSEV1._1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(string first_name, string last_name, string email, string password, string username, int BranchId)
+        public IActionResult Register(string first_name, string last_name, string email, string password, int BranchId, string password_repeat)
         {
 
             if (ModelState.IsValid)
             {
+
+                if(!password.Equals(password_repeat))
+                {
+                    ViewBag.Branch = _db.branches.ToList();
+                    IEnumerable<User> objUserList = _db.users;
+                    return View(objUserList);
+                }
                 User user = new User();
                 user.first_name = HttpContext.Request.Form["first_name"].ToString();
                 user.last_name = HttpContext.Request.Form["last_name"].ToString();
@@ -86,7 +93,7 @@ namespace ADOPSEV1._1.Controllers
                 user.branchId = Int32.Parse(HttpContext.Request.Form["dropBranch"]);  //
                 string typedPass = HttpContext.Request.Form["password"].ToString();
                 user.password = HashFun.Hash(password);
-                user.username = HttpContext.Request.Form["username"].ToString();
+                user.username = HttpContext.Request.Form["first_name"].ToString() + HttpContext.Request.Form["last_name"].ToString();
                 user.role = 0;
 
                 _db.users.Add(user);

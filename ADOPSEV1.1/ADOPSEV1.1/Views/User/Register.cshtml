@@ -15,18 +15,19 @@
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Create an Account!</h4>
                             </div>
-                            <form class="user">
+                            <form class="user" asp-action="Register">
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="First Name" name="first_name"></div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Last Name" name="last_name"></div>
                                 </div>
-                                <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address" name="email"></div><select class="form-select" style="border-radius: 160px;background: rgb(255,255,255);color: rgb(0,0,0);height: 54.1875px;border-color: rgb(133,135,150);">
-                                    <optgroup label="Επιλογή Παραρτήματος">
-                                        <option value="12" selected="">ΚΕΝΤΡΟ</option>
-                                        <option value="13">ΔΥΤΙΚΑ</option>
-                                        <option value="14">ΑΝΑΤΟΛΙΚΑ</option>
-                                        <option value="1">ΚΑΘΗΓΗΤΗΣ</option>
-                                    </optgroup>
+                                <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address" name="email"></div><select name="dropBranch" class="form-select" style="border-radius: 160px;background: rgb(255,255,255);color: rgb(0,0,0);height: 54.1875px;border-color: rgb(133,135,150);">
+                                    
+                                <option disabled selected> -- Επιλογή παραρτήματος -- </option>
+                                @foreach (var branches in ViewBag.Branch)
+                                {
+                                    <option value="@branches.id">@branches.name</option>
+                                }
+                                    
                                 </select>
                                 <div class="mb-3"></div>
                                 <div class="row mb-3">
