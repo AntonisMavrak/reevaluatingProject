@@ -1,7 +1,7 @@
 ﻿
 <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
     <div class="container-fluid d-flex flex-column p-0">
-        <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+        <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" asp-controller="Home" asp-action="Index">
             <div class="sidebar-brand-icon rotate-n-15">
             </div>
             <div class="sidebar-brand-text mx-3">
@@ -11,27 +11,36 @@
         <hr class="sidebar-divider my-0">
         <ul class="navbar-nav text-light" id="accordionSidebar">
             <li class="nav-item">
-                <a class="nav-link active" href="index.html">
+                <a class="nav-link active" asp-controller="Home" asp-action="Index">
                     <i class="fas fa-home"></i><span>Home</span>
-                </a><a class="nav-link" href="quiz.html" data-bs-target="quiz.html">
-                    <i class="fas fa-book-open"></i><span>Quiz</span>
-                </a>
-            </li>
-            <li class="nav-item"></li>
-            <li class="nav-item">
-                <a class="nav-link" href="table.html">
-                    <i class="fas fa-info"></i><span>Info</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.html">
-                    <i class="far fa-lightbulb"></i><span>Help</span>
+                <a class="nav-link" asp-controller="Subjects" asp-action="Enrollment">
+                    <i class="fas fa-book-open"></i><span>Subjects</span>
                 </a>
-                <a class="nav-link" href="profile.html">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Questions" asp-action="Index">
+                    <i class="bi bi-question-lg"></i><span>Questions</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Quizzes" asp-action="Index">
+                    <i class="far fa-lightbulb"></i><span>Quiz</span>
+                </a>
+
+            </li>
+            @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+            @if (HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="User" asp-action="Profile" asp-route-username="@User.Identity.Name">
                     <i class="fas fa-user"></i>
                     <span>Profile</span>
                 </a>
             </li>
+            }
             <li class="nav-item">
                 <a class="nav-link" href="register.html">
                     <i class="fas fa-sign-out-alt" style="color: var(--bs-red);">

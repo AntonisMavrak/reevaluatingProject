@@ -7,7 +7,7 @@
 
     int iteration = 0;
     int idQuestion = 1;
-    int counter = 0;
+    var counter = 0;
     bool isfalse = false;
     string subName = null;
 
@@ -16,19 +16,20 @@
         iteration++;
         if (iteration == ViewBag.Questions.Count)
         {
-            
+
             idQuestion = item.id;
             idQuestion++;
-        }
-
-        @foreach (Anwser key in ViewBag.Anwsers)
-        {
-
-            if (key.questionId == idQuestion)
+            @foreach (Anwser key in ViewBag.Anwsers)
             {
-                counter++;
+
+                if (key.questionId == idQuestion)
+                {
+                    counter++;
+                }
             }
         }
+
+
 
         @if (ViewBag.subjectId != null)
         {
@@ -73,14 +74,14 @@
                                 }
                                 else
                                 {
-                                     <option selected value="ViewBag.subjectId">@subName</option>
+                                    <option selected value="ViewBag.subjectId">@subName</option>
 
                                 }
 
 
                                 @foreach (Subject subject in ViewBag.Subject)
                                 {
-                                    <option value="@subject.id">@subject.name</option>          
+                                    <option value="@subject.id">@subject.name</option>
                                 }
                             </select>
                             <span asp-validation-for="question.subjectId" class="text-danger"></span>
