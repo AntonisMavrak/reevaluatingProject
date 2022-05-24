@@ -3,12 +3,9 @@
 @{
     ViewData["Title"] = "Edit";
 
-    int counter = 0;
+    var counter = 0;
 
-    foreach (Question item in ViewBag.Questions)
-    {
-
-    @foreach (Anwser key in ViewBag.Anwsers)
+        @foreach (Anwser key in ViewBag.Anwsers)
         {
 
             if (key.questionId == Model.question.id)
@@ -16,7 +13,7 @@
                 counter++;
             }
         }
-    }
+    
 }
 <h1>Edit</h1>
 
@@ -175,7 +172,7 @@
                                         <label asp-for="anwser.questionId" class="control-label"></label>
                                         @{
 
-                                                    <input asp-for="anwser.questionId" class="form-control" value="Model.question.id" />
+                                            <input asp-for="anwser.questionId" class="form-control" value="Model.question.id" />
 
                                         }
 

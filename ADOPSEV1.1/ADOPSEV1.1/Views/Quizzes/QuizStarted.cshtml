@@ -5,20 +5,35 @@
     var firstLoaded = -1;
     var lastLoaded = -1;
     var nextQuestion = -1;
+    var prevQuestion = -1;
     bool flag = false;
+    var prevLoc = 0;
+    var prevCount = 0;
+    var counter = 0;
 
 
     @foreach (QuizQuestions qQ in ViewBag.QuizQuestions)
     {
-        if (qQ.questionId == ViewBag.idQuestion)
-        {
-            flag = true;
-        }
-        if (flag && qQ.quizId == Model.id)
+        
+        if (flag)
         {
             nextQuestion = qQ.questionId;
             break;
 
+        }
+        if (qQ.questionId == ViewBag.idQuestion)
+        {
+            flag = true;
+            prevLoc = prevCount;
+        }
+        prevCount++;
+    }
+    @foreach (QuizQuestions qQ in ViewBag.QuizQuestions)
+    {
+        counter++;
+        if(counter == prevLoc)
+        {
+            prevQuestion = qQ.questionId;
         }
     }
 }
@@ -174,7 +189,7 @@
                                 @if (ViewBag.idQuestion != firstLoaded)
                                 {
                                     <div class="col text-center">
-                                        <a asp-controller="" asp-action="" asp-route-id="" class="btn btn-lg float-end btn-block btn-secondary">
+                                        <a asp-action="QuizStarted" asp-route-idQuiz="@Model.id" asp-route-idQuestion="@prevQuestion" class="btn btn-lg float-end btn-block btn-secondary">
                                             Previous
                                         </a>
                                     </div>

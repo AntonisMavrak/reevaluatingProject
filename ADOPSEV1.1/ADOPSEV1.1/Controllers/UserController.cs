@@ -22,6 +22,12 @@ namespace ADOPSEV1._1.Controllers
             return View(objUserList);
         }
 
+
+        public IActionResult Profile(string username)
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Register(string first_name, string last_name, string email, string password, string username, int BranchId)
         {
