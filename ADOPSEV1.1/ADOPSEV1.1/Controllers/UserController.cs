@@ -186,8 +186,12 @@ namespace ADOPSEV1._1.Controllers
                 return false;
             }
         }
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/Home/Index");
+        }
 
-       
 
     }
 }

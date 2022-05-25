@@ -44,12 +44,13 @@
                 </li>
                 @*}*@
                 <li class="nav-item">
-                    <a class="nav-link" href="register.html">
+                    <a class="nav-link" asp-controller="User" asp-action="Logout">
                         <i class="fas fa-sign-out-alt" style="color: var(--bs-red);">
 
-                        </i><a class="nav-link" asp-controller="User" asp-action="Logout"><span style="color: var(--bs-red);background: rgba(231,74,59,0);">Log Out</span>
+                        </i><span style="color: var(--bs-red);background: rgba(231,74,59,0);">Log Out</span>
                     </a>
                 </li>
+                
             </ul>
             <div class="text-center d-none d-md-inline">
                 <button class="btn rounded-circle border-0" id="sidebarToggle" type="button">
