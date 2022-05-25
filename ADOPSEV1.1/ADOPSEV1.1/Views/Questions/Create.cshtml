@@ -127,9 +127,19 @@
                                                             <div>
                                                                 <dt>Correct Anwser</dt>
                                                                 <dd class="card-text">
-                                                                    <div class="form-check">
+                                                                    <div class="form-group form-check">
                                                                         <label class="form-check-label">
-                                                                            @item.isCorrect
+                                                                            @if (@item.isCorrect == true)
+                                                                            {
+                                                                                <input disabled class="form-check-input" type="checkbox" value="" checked />
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <input disabled class="form-check-input" type="checkbox" value="" />
+                                                                            }
+
+                                                                           
+
                                                                         </label>
                                                                     </div>
                                                                 </dd>

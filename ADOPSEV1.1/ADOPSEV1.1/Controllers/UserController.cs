@@ -80,12 +80,12 @@ namespace ADOPSEV1._1.Controllers
 
             if (ModelState.IsValid)
             {
-
-                if(!password.Equals(password_repeat))
+                if (!password.Equals(password_repeat))
                 {
                     ViewBag.Branch = _db.branches.ToList();
                     ViewBag.msg = "passwords don't match";
                     IEnumerable<User> objUserList = _db.users;
+                    TempData["error"] = "Something went wrong with registration";
                     return View(objUserList);
                 }
                 User user = new User();
@@ -100,8 +100,9 @@ namespace ADOPSEV1._1.Controllers
 
                 _db.users.Add(user);
                 _db.SaveChanges();
-
+                TempData["success"] = "User registered succesfully";
                 return RedirectToAction("Register");
+
             }
             else
             {
@@ -187,7 +188,7 @@ namespace ADOPSEV1._1.Controllers
             }
         }
 
-       
+
 
     }
 }
