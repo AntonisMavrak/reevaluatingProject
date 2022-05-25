@@ -20,6 +20,7 @@ namespace ADOPSEV1._1.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Users = _db.users.ToList();
             ViewBag.Subject = _db.subjects.ToList();
             IEnumerable<Question> objQuestionList = _db.questions;
             return View(objQuestionList);
@@ -36,6 +37,37 @@ namespace ADOPSEV1._1.Controllers
             ViewBag.Questions = _db.questions.ToList();
             ViewBag.Anwsers = _db.anwsers.ToList();
             return View();
+        }
+
+        public IActionResult CreateFromQuiz()
+        {
+            ViewBag.questionText = questionName;
+            ViewBag.subjectId = subjectId;
+            ViewBag.Subject = _db.subjects.ToList();
+            ViewBag.Questions = _db.questions.ToList();
+            ViewBag.Anwsers = _db.anwsers.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateFromQuiz(DualModel obj)
+        {
+            questionName = null;
+            subjectId = null;
+            if (ModelState.IsValid)
+            {
+
+                _db.questions.Add(obj.question);
+                _db.SaveChanges();
+                TempData["success"] = "Question created succesfully";
+                return RedirectToAction("Create", "Quizzes");
+            }
+            else
+            {
+                TempData["error"] = "Question creation failed";
+            }
+            return View(obj);
         }
 
 
@@ -85,6 +117,29 @@ namespace ADOPSEV1._1.Controllers
                 TempData["error"] = "Anwser creation failed";
             }
             return RedirectToAction("Create", "Questions");
+
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateAnwserFromQuiz(DualModel obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                questionName = obj.question.text;
+                subjectId = obj.question.subjectId;
+                _db.anwsers.Add(obj.anwser);
+                _db.SaveChanges();
+                TempData["success"] = "Anwser created succesfully";
+                return RedirectToAction("CreateFromQuiz", "Questions");
+            }
+            else
+            {
+                TempData["error"] = "Anwser creation failed";
+            }
+            return RedirectToAction("CreateFromQuiz", "Questions");
 
 
         }

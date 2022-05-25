@@ -1,5 +1,7 @@
-﻿
-<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+﻿@using System.Security.Claims
+
+
+<nav class="navbar navbar-dark align-items-start sidebar position-sticky sidebar-dark accordion bg-gradient-primary p-0">
     <div class="container-fluid d-flex flex-column p-0">
         <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" asp-controller="Home" asp-action="Index">
             <div class="sidebar-brand-icon rotate-n-15">
@@ -16,33 +18,70 @@
 
                 <li class="nav-item">
                     <a class="nav-link active" asp-controller="Home" asp-action="Index">
-                        <i class="fas fa-home"></i><span>Home</span>
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="Subjects" asp-action="Enrollment">
-                        <i class="fas fa-book-open"></i><span>Subjects</span>
+                        <i class="fas fa-book-open"></i>
+                        <span>Subjects</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Questions" asp-action="Index">
-                        <i class="bi bi-question-lg"></i><span>Questions</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Quizzes" asp-action="Index">
-                        <i class="far fa-lightbulb"></i><span>Quiz</span>
-                    </a>
 
-                </li>
-                @*{*@
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="User" asp-action="Profile" asp-route-username="@User.Identity.Name">
                         <i class="fas fa-user"></i>
                         <span>Profile</span>
                     </a>
                 </li>
-                @*}*@
+
+
+                @if (User.HasClaim(ClaimTypes.Role, "2"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Quizzes" asp-action="Index">
+                            <i class="bi bi-mortarboard"></i>
+                            <span>Teacher</span>
+                        </a>
+                    </li>
+                }
+                else if (User.HasClaim(ClaimTypes.Role, "4"))
+                {
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Secretary" asp-action="Index">
+                            <i class="bi bi-pencil"></i>
+                            <span>Secretary</span>
+                        </a>
+                    </li>
+
+                }
+                else if (User.HasClaim(ClaimTypes.Role, "6"))
+                {
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Quizzes" asp-action="Index">
+                            <i class="bi bi-mortarboard"></i>
+                            <span>Teacher</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Secretary" asp-action="Index">
+                            <i class="bi bi-pencil"></i>
+                            <span>Secretary</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="Index">
+                            <i class="bi bi-incognito"></i>
+                            <span>Admin</span>
+                        </a>
+                    </li>
+
+                }
+
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="User" asp-action="Logout">
                         <i class="fas fa-sign-out-alt" style="color: var(--bs-red);">

@@ -15,6 +15,7 @@ namespace ADOPSEV1._1.Models
         [DisplayName("Subject")]
         public int subjectId { get; set; }
         [Required]
+        [DisplayName("Creator")]
         public int madeBy { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 

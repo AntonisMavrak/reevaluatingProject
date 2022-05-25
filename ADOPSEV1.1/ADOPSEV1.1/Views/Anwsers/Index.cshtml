@@ -9,7 +9,7 @@
 @*<p>
     <a asp-action="Create">Create New</a>
 </p>*@
-<table class="table">
+<table class="table overflow-auto style="max-height: 600px;">
     <thead>
         <tr>
             <th>
@@ -28,32 +28,38 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.text)
-            </td>
-            <td>
-                    @foreach(Question question in ViewBag.Questions)
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.text)
+                </td>
+                <td>
+                    @foreach (Question question in ViewBag.Questions)
                     {
-                        if(item.questionId == question.id)
+                        if (item.questionId == question.id)
                         {
                             @question.text
                         }
                     }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.isCorrect)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDateTime)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
-        </tr>
-}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isCorrect)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDateTime)
+                </td>
+                <td class="float-end">
+                    <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-primary mx-2">
+                        <i class="bi bi-pencil-square"></i>
+                        Edit
+                    </a> |
+                    <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger mx-2">
+                        <i class="bi bi-trash3"></i>
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
