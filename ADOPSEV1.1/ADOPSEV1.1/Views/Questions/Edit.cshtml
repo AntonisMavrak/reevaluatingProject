@@ -5,15 +5,17 @@
 
     var counter = 0;
 
-        @foreach (Anwser key in ViewBag.Anwsers)
-        {
+    @foreach (Anwser key in ViewBag.Anwsers)
+    {
 
-            if (key.questionId == Model.question.id)
-            {
-                counter++;
-            }
+        if (key.questionId == Model.question.id)
+        {
+            counter++;
         }
-    
+    }
+
+    bool isFalse = false;
+
 }
 <h1>Edit</h1>
 
@@ -126,6 +128,47 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+
+            @*This is the dummy data*@
+            <div hidden>
+                <div>
+                    <dt class="">Anwser's text</dt>
+                    <dd class="card-text mb-1">
+                        <label asp-for="anwser.text" class="control-label"></label>
+
+                        <select asp-for="anwser.text" class="form-select" aria-label="Default select example">
+                            <option selected value="dummy"></option>
+                        </select>
+
+                        <span asp-validation-for="anwser.text" class="text-danger"></span>
+                    </dd>
+                </div>
+                <div>
+                    <dt>Correct Anwser</dt>
+                    <dd class="card-text">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <label asp-for="anwser.isCorrect" class="control-label"></label>
+
+                                <select asp-for="anwser.isCorrect" class="form-select" aria-label="Default select example">
+                                    <option selected value="@isFalse"></option>
+                                </select>
+
+                                <span asp-validation-for="anwser.isCorrect" class="text-danger"></span>
+                            </label>
+                        </div>
+                    </dd>
+                </div>
+                <div class="form-group" hidden>
+                    <label asp-for="anwser.questionId" class="control-label"></label>
+
+                    <select asp-for="anwser.questionId" class="form-select" aria-label="Default select example">
+                        <option selected value="0"></option>
+                    </select>
+
+                    <span asp-validation-for="anwser.questionId" class="text-danger"></span>
                 </div>
             </div>
 
