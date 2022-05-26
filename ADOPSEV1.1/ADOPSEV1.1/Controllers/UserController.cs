@@ -57,19 +57,18 @@ namespace ADOPSEV1._1.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(User obj)
         {
-
             if (ModelState.IsValid)
             {
                 _db.users.Update(obj);
                 _db.SaveChanges();
                 TempData["success"] = "User updated succesfully";
-                return RedirectToAction("Profile");
+                return RedirectToAction("Profile", new { username = obj.username });
             }
             else
             {
                 TempData["error"] = "User update failed";
             }
-            return RedirectToAction("Profile");
+            return RedirectToAction("Profile", new { username = obj.username });
 
 
         }
@@ -101,7 +100,7 @@ namespace ADOPSEV1._1.Controllers
                 _db.users.Add(user);
                 _db.SaveChanges();
                 TempData["success"] = "User registered succesfully";
-                return RedirectToAction("Register");
+                return RedirectToAction("login");
 
             }
             else

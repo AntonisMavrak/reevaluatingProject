@@ -36,6 +36,7 @@ namespace ADOPSEV1._1.Controllers
             ViewBag.Subject = _db.subjects.ToList();
             ViewBag.Questions = _db.questions.ToList();
             ViewBag.Anwsers = _db.anwsers.ToList();
+            ViewBag.Users = _db.users.ToList();
             return View();
         }
 
@@ -293,12 +294,18 @@ namespace ADOPSEV1._1.Controllers
         }
 
         //GET
-        public IActionResult LoadFromDb(int? id)
+        public IActionResult LoadFromDb(int? id, string searchString, int? subjectId)
         {
+
+            ViewBag.nothingExist = false;
+
             if (id == null || id == 0)
             {
                 return NotFound();
             }
+
+
+
 
             var obj = _db.quizzes.Find(id);
             if (obj == null)
@@ -310,13 +317,46 @@ namespace ADOPSEV1._1.Controllers
                 ViewBag.Exist = true;
             }
 
+
+
+
+
+
+            IEnumerable<Question> objQuestionList = _db.questions;
+            if ((searchString == null || searchString == "") && (subjectId == 0 || subjectId == null))
+            {
+                objQuestionList = _db.questions;
+            }
+            else if ((searchString != null && searchString != "") && (subjectId == 0 || subjectId == null))
+            {
+                objQuestionList = _db.questions.Where(q => q.text!.Contains(searchString));
+                if (objQuestionList == null)
+                {
+                    objQuestionList = _db.questions;
+                    ViewBag.nothingExist = true;
+                }
+            }
+            else if ((searchString == null || searchString == "") && (subjectId != 0 || subjectId != null))
+            {
+                objQuestionList = _db.questions.Where(q => q.subjectId == subjectId);
+            }
+            else if ((searchString != null && searchString != "") && (subjectId != 0 || subjectId != null))
+            {
+                objQuestionList = _db.questions.Where(q => q.text!.Contains(searchString) && q.subjectId == subjectId);
+            }
+
+
+
+            ViewBag.Subjects = _db.subjects.ToList();
             ViewBag.QuizQuestions = _db.quizQuestions.ToList();
             ViewBag.QuizId = id;
-            ViewBag.Subjects = _db.subjects.ToList();
             ViewBag.Users = _db.users.ToList();
-            IEnumerable<Question> objQuestionList = _db.questions;
             return View(objQuestionList);
         }
+
+
+
+
 
         //POST
         public IActionResult AddToQuiz(int idQuiz, int idQuestion)

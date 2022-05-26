@@ -23,13 +23,12 @@ namespace ADOPSEV1._1.Models
         [Display(Name = "Email Address: ")]
         public string email { get; set; }
 
-        [Required]
         [DataType(DataType.Password)]
         [StringLength(150, MinimumLength = 6)]
         [Display(Name = "Password: ")]
         public string password { get; set; }
         // public string PasswordSalt { get; set; }
-        [Required]
+
         [DisplayName("Username")]
         public string username { get; set; }
         [DisplayName("Role")]

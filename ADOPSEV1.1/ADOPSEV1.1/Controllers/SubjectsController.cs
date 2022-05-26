@@ -79,6 +79,7 @@ namespace ADOPSEV1._1.Controllers
                     if (lesson.subjectId == lessonInput)
                     {
                         chk = true;
+                        TempData["error"] = "Already enrolled";
                     }
                 }
                 if (!chk)

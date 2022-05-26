@@ -56,6 +56,12 @@ app.MapControllerRoute(
             new { controller = "Home", action = "Index" }  // Parameter defaults
         );
 
+app.MapControllerRoute(
+            "search",                                  // Route name
+            "{controller}/{action}/{idQuiz}/{searchString}/{subjectId}",  // URL with parameters
+            new { controller = "Home", action = "Index" }  // Parameter defaults
+        );
+
 
 
 app.Run();
