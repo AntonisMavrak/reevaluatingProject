@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Coding\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj": {}
+    "D:\\Coding\\new\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj": {}
   },
   "projects": {
-    "D:\\Coding\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj": {
+    "D:\\Coding\\new\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coding\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj",
+        "projectUniqueName": "D:\\Coding\\new\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj",
         "projectName": "ADOPSEV1.1",
-        "projectPath": "D:\\Coding\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj",
+        "projectPath": "D:\\Coding\\new\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\ADOPSEV1.1.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Coding\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\obj\\",
+        "outputPath": "D:\\Coding\\new\\reevaluatingProject\\ADOPSEV1.1\\ADOPSEV1.1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -58,8 +58,11 @@
 
 
                             <form asp-action="Edit">
+
+
+
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                <input type="hidden" asp-for="id" />
+                                <input type="hidden" asp-for="@Model.id" />
 
                                 <div class="row">
 
@@ -102,13 +105,35 @@
                                                 }
                                             </select>
                                             <span asp-validation-for="branchId" class="text-danger"></span>
-                                            </select>
                                         </div>
 
                                     </div>
-                                    <div class="mb-3">
-                                        <button class="btn btn-primary btn-sm" asp-route-username="@Model.username" type="submit">Save Settings</button>
+
+                                    @*Dummy objects*@
+                                    <div class="col" hidden>
+                                        <div class="mb-3">
+                                            <strong><label asp-for="username" class="control-label"></label></strong>
+                                            <input asp-for="username" class="form-control" />
+                                            <span asp-validation-for="username" class="text-danger"></span>
+                                        </div>
                                     </div>
+                                    <div class="col" hidden>
+                                        <div class="mb-3">
+                                            <strong><label asp-for="password" class="control-label"></label></strong>
+                                            <input asp-for="password" class="form-control" />
+                                            <span asp-validation-for="password" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    @*---*@
+
+
+                                    <div class="mb-3">
+                                        <input type="submit" value="Save Settings" class="btn btn-primary btn-sm" />
+                                    </div>
+                                </div>
+
+
+
                             </form>
                         </div>
                     </div>

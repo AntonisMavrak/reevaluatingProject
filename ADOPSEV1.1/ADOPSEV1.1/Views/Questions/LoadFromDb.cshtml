@@ -2,7 +2,9 @@
 
 @{
     ViewData["Title"] = "LoadFromDb";
+    string text = "";
     bool isIn;
+    var idSubject = 0;
 }
 
 <h1>Existing Questions</h1>
@@ -12,39 +14,49 @@
     <br />
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-            <form class="card card-sm">
-                <div class="card-body row no-gutters align-items-center">
-                    <div class="col-auto">
-                        <i class="fas fa-search h4 text-body"></i>
-                    </div>
 
-                    <!--end of col-->
-                    <div class="col">
-                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search Questions..">
-                    </div>
-                    <div class="col-2">
-                        <select class="form-select" aria-label="Default select example">
 
-                            <option disabled selected> -- Select a Subject -- </option>
 
-                            @foreach (Subject subject in ViewBag.Subjects)
-                            {
-                                <option id="subjectOption" value="@subject.id">@subject.name</option>
-                            }
-                        </select>
-                    </div>
-                    <!--end of col-->
-                    <div class="col-auto">
-                        <button class="btn btn-lg btn-success" type="submit">Search</button>
-                    </div>
-                    <!--end of col-->
+            <div class="card-body row no-gutters align-items-center">
+                <div class="col-auto">
+                    <i class="fas fa-search h4 text-body"></i>
                 </div>
-            </form>
+
+                <!--end of col-->
+                <div class="col">
+                    <input name="searchBar" class="form-control form-control-lg form-control-borderless" id="searchBar" type="search" placeholder="Search Questions..">
+                </div>
+                <div class="col-2">
+                    <select class="form-select" aria-label="Default select example">
+
+                        <option disabled selected> -- Select a Subject -- </option>
+
+                        @foreach (Subject subject in ViewBag.Subjects)
+                        {
+                            <option name="subjectOption" id="subjectOption" value="@subject.id">@subject.name</option>
+                        }
+                    </select>
+                </div>
+                <!--end of col-->
+                <div class="col-auto">
+                    <a asp-action="LoadFromDb" asp-route-id="@ViewBag.QuizId" asp-route-searchString="@text" asp-route-subjectId="@idSubject" class="btn btn-lg btn-success">Search</a>
+                </div>
+                <!--end of col-->
+            </div>
+
+
+
+
+
         </div>
         <!--end of col-->
     </div>
 </div>
 
+@if (ViewBag.nothingExist)
+{
+    <h3>There was no match</h3>
+}
 <br />
 <ul class="list-group overflow-auto" style="height: 530px;">
     <li class="list-group-item">
@@ -53,7 +65,7 @@
         {
 
 
-            
+
             isIn = false;
             foreach (QuizQuestions qQ in ViewBag.QuizQuestions)
             {
@@ -127,3 +139,7 @@ else
 
 
 
+<script>
+    @text = document.getElementById('searchBar');
+    @idSubject = ducoment.getElementById('subjectOption');
+</script>

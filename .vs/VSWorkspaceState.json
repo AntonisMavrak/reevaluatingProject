@@ -3,10 +3,9 @@
     "",
     "\\ADOPSEV1.1",
     "\\ADOPSEV1.1\\ADOPSEV1.1",
-    "\\ADOPSEV1.1\\ADOPSEV1.1\\Controllers",
     "\\ADOPSEV1.1\\ADOPSEV1.1\\Views",
-    "\\ADOPSEV1.1\\ADOPSEV1.1\\Views\\Home"
+    "\\ADOPSEV1.1\\ADOPSEV1.1\\Views\\Subjects"
   ],
-  "SelectedNode": "\\ADOPSEV1.1\\ADOPSEV1.1\\Controllers\\QuizzesController.cs",
+  "SelectedNode": "\\ADOPSEV1.1\\ADOPSEV1.1\\Views\\Subjects\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
